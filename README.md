@@ -400,6 +400,116 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 /* FOOTER */
 footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.77rem;}
 
+/* ═══ LOGIN MODAL ═══ */
+.login-modal-overlay{
+  display:none;position:fixed;inset:0;z-index:800;
+  background:rgba(0,0,0,.85);backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;
+}
+.login-modal-overlay.open{display:flex;}
+.login-box{
+  background:linear-gradient(145deg,var(--navy2),#0d1528);
+  border:1px solid rgba(240,90,40,.3);border-radius:24px;
+  padding:2.5rem;width:100%;max-width:400px;position:relative;
+  box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(240,90,40,.08);
+}
+.login-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--orange),transparent);
+  border-radius:24px 24px 0 0;
+}
+.login-logo{
+  width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:1.1rem;margin:0 auto 1.5rem;
+  box-shadow:0 8px 24px rgba(240,90,40,.35);
+}
+.login-title{text-align:center;font-size:1.2rem;font-weight:800;margin-bottom:.3rem;}
+.login-sub{text-align:center;color:var(--muted);font-size:.8rem;margin-bottom:1.8rem;}
+.login-field{margin-bottom:1rem;position:relative;}
+.login-field label{display:block;font-size:.74rem;color:var(--muted);margin-bottom:.4rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;}
+.login-field input{
+  width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:.75rem 1rem .75rem 2.8rem;color:#fff;
+  font-family:'Poppins',sans-serif;font-size:.88rem;outline:none;
+  transition:border-color .2s,background .2s;
+}
+.login-field input:focus{border-color:var(--orange);background:rgba(240,90,40,.06);}
+.login-field-icon{
+  position:absolute;left:.9rem;bottom:.78rem;font-size:.95rem;
+  pointer-events:none;
+}
+.login-error{
+  background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);
+  color:#fca5a5;border-radius:10px;padding:.6rem .9rem;
+  font-size:.78rem;margin-bottom:1rem;display:none;
+  text-align:center;
+}
+.login-error.show{display:block;}
+.login-btn{
+  width:100%;padding:.85rem;background:linear-gradient(135deg,var(--orange),var(--orange2));
+  color:#fff;border:none;border-radius:12px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:.92rem;
+  cursor:pointer;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(240,90,40,.35);margin-top:.5rem;
+}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(240,90,40,.45);}
+.login-close{
+  position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);color:var(--muted);
+  width:30px;height:30px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;
+  transition:all .2s;
+}
+.login-close:hover{background:rgba(255,255,255,.15);color:#fff;}
+
+/* EDIT MODE BUTTON */
+.btn-edit-mode{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.55rem 1.2rem;border-radius:100px;border:none;cursor:pointer;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:.82rem;
+  transition:all .2s;
+}
+.btn-edit-mode.locked{
+  background:rgba(255,255,255,.07);color:var(--muted);
+  border:1px solid rgba(255,255,255,.12);
+}
+.btn-edit-mode.locked:hover{background:rgba(255,255,255,.12);color:#fff;}
+.btn-edit-mode.unlocked{
+  background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;
+  border:1px solid rgba(34,197,94,.3);
+  box-shadow:0 4px 12px rgba(34,197,94,.25);
+  animation:editPulse 2s ease-in-out infinite;
+}
+@keyframes editPulse{0%,100%{box-shadow:0 4px 12px rgba(34,197,94,.25);}50%{box-shadow:0 4px 20px rgba(34,197,94,.5);}}
+
+/* EDIT MODE BANNER */
+.edit-banner{
+  display:none;position:fixed;top:72px;left:0;right:0;z-index:250;
+  background:linear-gradient(90deg,rgba(34,197,94,.15),rgba(34,197,94,.08),rgba(34,197,94,.15));
+  border-bottom:1px solid rgba(34,197,94,.25);
+  padding:.55rem 2rem;text-align:center;
+  font-size:.78rem;color:#4ade80;font-weight:500;
+  display:none;align-items:center;justify-content:center;gap:.6rem;
+}
+.edit-banner.show{display:flex;}
+.edit-banner-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse-green 1.5s infinite;}
+
+/* EDITABLE FIELDS */
+.editable{
+  outline:none;border-radius:6px;
+  transition:background .2s,box-shadow .2s;
+  cursor:default;
+}
+body.edit-mode .editable{
+  cursor:text;
+  background:rgba(240,90,40,.08);
+  box-shadow:0 0 0 2px rgba(240,90,40,.3);
+  padding:2px 6px;
+  border-radius:6px;
+}
+body.edit-mode .editable:hover{background:rgba(240,90,40,.13);}
+
 @media(max-width:1050px){
   .hero{flex-direction:column;padding:6rem 1.5rem 2rem;align-items:center;}
   .hero-left,.hero-right{max-width:500px;width:100%;}
@@ -428,6 +538,35 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
 </style>
 </head>
 <body>
+
+<!-- LOGIN MODAL -->
+<div class="login-modal-overlay" id="loginModal">
+  <div class="login-box">
+    <button class="login-close" onclick="closeLoginModal()">✕</button>
+    <div class="login-logo">AK</div>
+    <div class="login-title">Admin Login</div>
+    <div class="login-sub">Enter your credentials to unlock editing</div>
+    <div class="login-error" id="loginError">❌ Incorrect ID or Password. Try again.</div>
+    <div class="login-field">
+      <label>User ID</label>
+      <span class="login-field-icon">👤</span>
+      <input type="text" id="loginId" placeholder="Enter your User ID" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <span class="login-field-icon">🔒</span>
+      <input type="password" id="loginPwd" placeholder="Enter your Password" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="login-btn" onclick="doLogin()">🔓 Unlock Edit Mode</button>
+  </div>
+</div>
+
+<!-- EDIT MODE BANNER -->
+<div class="edit-banner" id="editBanner">
+  <div class="edit-banner-dot"></div>
+  <span>✏️ Edit Mode Active — Click any text to edit it directly. Changes are saved automatically.</span>
+  <button onclick="logoutEdit()" style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:.25rem .7rem;border-radius:100px;font-size:.72rem;cursor:pointer;font-family:'Poppins',sans-serif;margin-left:.5rem;">🔒 Lock &amp; Exit</button>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLB(event)">
@@ -533,7 +672,10 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <button class="nav-tab" onclick="showPage('awards',this)">Awards</button>
   </div>
   <div class="nav-actions">
-    <button class="btn-resume" onclick="openResumeModal()">
+    <button class="btn-edit-mode locked" id="editModeBtn" onclick="handleEditBtn()" title="Admin Login to edit portfolio">
+      🔒 <span id="editBtnLabel">Edit</span>
+    </button>
+    <button class="btn-resume" onclick="guardedAction(openResumeModal)">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Resume
     </button>
@@ -548,12 +690,12 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <!-- LEFT -->
   <div class="hero-left">
     <p class="hero-eyebrow">Hello,</p>
-    <h1 class="hero-name">I'm Akash Kourav</h1>
-    <p class="hero-role">A BI Analyst</p>
-    <p class="hero-desc">Transforming raw data into powerful insights that drive smarter decisions. Every dashboard tells a story — I make sure it's the right one.</p>
+    <h1 class="hero-name"><span class="editable" id="info-name" contenteditable="false">I'm Akash Kourav</span></h1>
+    <p class="hero-role"><span class="editable" id="info-role" contenteditable="false">A BI Analyst</span></p>
+    <p class="hero-desc"><span class="editable" id="info-desc" contenteditable="false">Transforming raw data into powerful insights that drive smarter decisions. Every dashboard tells a story — I make sure it's the right one.</span></p>
     <div class="hero-ctas">
       <a href="#" onclick="showPage('projects',document.querySelectorAll('.nav-tab')[3]);return false;" class="btn-dis">Discover More</a>
-      <button onclick="openResumeModal()" class="btn-circ" title="Download Resume">↓</button>
+      <button onclick="guardedAction(openResumeModal)" class="btn-circ" title="Upload/Download Resume (admin only)">↓</button>
     </div>
     <div class="follow-row">
       <span>Follow me:</span>
@@ -571,14 +713,14 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <div class="hero-center">
     <div class="pwrap">
       <div class="ring"></div>
-      <div class="pcircle" onclick="openProfileModal()" title="Click to update photo">
+      <div class="pcircle" onclick="guardedAction(openProfileModal)" title="Click to update photo (admin only)">
         <img id="profileImg" class="pimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f05a28' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='40' font-weight='bold' fill='white' text-anchor='middle' dy='0.3em'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
       </div>
-      <div class="profile-upload" onclick="openProfileModal()" title="Update Profile Picture">
+      <div class="profile-upload" onclick="guardedAction(openProfileModal)" title="Update Profile Picture (admin only)">
         <span>📷</span>
       </div>
-      <div class="fcard fc1"><div class="fcard-num">10+</div><div class="fcard-lbl">Dashboards built</div></div>
-      <div class="fcard fc2"><div class="fcard-num">2+</div><div class="fcard-lbl">Years exp.</div></div>
+      <div class="fcard fc1"><div class="fcard-num">50+</div><div class="fcard-lbl">Dashboards built</div></div>
+      <div class="fcard fc2"><div class="fcard-num">4.5+</div><div class="fcard-lbl">Years exp.</div></div>
       <div class="fcard fc3"><div class="fcard-stars">★★★★★</div><div class="fcard-num" style="font-size:1rem;">BI Pro</div><div class="fcard-lbl">Specialist</div></div>
     </div>
   </div>
@@ -592,7 +734,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">🎓</div>
         <div>
           <div class="info-label">Education</div>
-          <div class="info-value">B.Tech — Computer Science<br><span style="color:var(--muted);font-size:.72rem;">University of Mumbai · 2022</span></div>
+          <div class="info-value"><span class="editable" id="info-edu" contenteditable="false">B.Tech — Computer Science</span><br><span style="color:var(--muted);font-size:.72rem;" class="editable" id="info-edu2" contenteditable="false">University of Mumbai · 2022</span></div>
         </div>
       </div>
 
@@ -600,7 +742,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">📧</div>
         <div>
           <div class="info-label">Email</div>
-          <div class="info-value"><a href="mailto:akash.kourav@email.com">akash.kourav@email.com</a></div>
+          <div class="info-value"><span class="editable" id="info-email" contenteditable="false">akash.kourav@email.com</span></div>
         </div>
       </div>
 
@@ -608,7 +750,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">📱</div>
         <div>
           <div class="info-label">Mobile</div>
-          <div class="info-value"><a href="tel:+919876543210">+91 98765 43210</a></div>
+          <div class="info-value"><span class="editable" id="info-mobile" contenteditable="false">+91 98765 43210</span></div>
         </div>
       </div>
 
@@ -616,7 +758,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">📍</div>
         <div>
           <div class="info-label">Location</div>
-          <div class="info-value">Mumbai, Maharashtra 🇮🇳</div>
+          <div class="info-value"><span class="editable" id="info-loc" contenteditable="false">Mumbai, Maharashtra 🇮🇳</span></div>
         </div>
       </div>
 
@@ -624,7 +766,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">💼</div>
         <div>
           <div class="info-label">Experience</div>
-          <div class="info-value">2+ Years · Associate Analyst – BI</div>
+          <div class="info-value"><span class="editable" id="info-exp" contenteditable="false">2+ Years · Associate Analyst – BI</span></div>
         </div>
       </div>
 
@@ -632,7 +774,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
         <div class="info-icon">🌐</div>
         <div>
           <div class="info-label">LinkedIn</div>
-          <div class="info-value"><a href="https://linkedin.com/in/akashkourav" target="_blank">linkedin.com/in/akashkourav</a></div>
+          <div class="info-value"><span class="editable" id="info-li" contenteditable="false">linkedin.com/in/akashkourav</span></div>
         </div>
       </div>
 
@@ -772,7 +914,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
       <div class="cert-img-wrap" id="cimg-2"><div class="cert-img-placeholder"><div class="upload-icon">📊</div><div>Tableau Specialist</div><label class="cert-upload-btn">Upload Certificate<input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,2)"></label></div></div>
       <div class="cert-body"><div class="cert-org">Tableau</div><div class="cert-name">Tableau Desktop Specialist</div><div class="cert-yr">✦ Add your year</div><button class="cert-view-btn" onclick="viewCertImg(2)" style="display:none" id="cvbtn-2">🔍 View Full Size</button></div>
     </div>
-    <div class="add-cert-card" onclick="openModal('certModal')"><span>＋</span><div>Add Certification</div></div>
+    <div class="add-cert-card" onclick="guardedAction(()=>openModal('certModal'))"><span>＋</span><div>Add Certification</div></div>
   </div>
 </section>
 </div>
@@ -793,7 +935,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
       <div class="award-img-wrap" id="aimg-1"><div class="award-img-placeholder"><span style="font-size:2rem">🌟</span><div>Appreciation Letter</div><label class="cert-upload-btn">Upload Image<input type="file" accept="image/*" style="display:none" onchange="uploadAwardImg(event,1)"></label></div></div>
       <div class="award-body"><div class="award-badge">🌟 Appreciation</div><div class="award-title">Client Appreciation Letter</div><div class="award-desc">Add a description of this appreciation and context.</div><button class="cert-view-btn" onclick="viewAwardImg(1)" style="display:none" id="avbtn-1">🔍 View Letter</button></div>
     </div>
-    <div class="add-award-card" onclick="openModal('awardModal')"><span>＋</span><div>Add Award / Appreciation</div></div>
+    <div class="add-award-card" onclick="guardedAction(()=>openModal('awardModal'))"><span>＋</span><div>Add Award / Appreciation</div></div>
   </div>
 </section>
 </div>
@@ -837,6 +979,89 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
 </div>
 
 <script>
+// ══════════════════════════════════════
+// AUTH & EDIT MODE
+// ══════════════════════════════════════
+const ADMIN_ID  = 'Akash7566';
+const ADMIN_PWD = 'Aman7566';
+let isEditMode = false;
+
+function handleEditBtn() {
+  if (isEditMode) {
+    logoutEdit();
+  } else {
+    openLoginModal();
+  }
+}
+
+function openLoginModal() {
+  document.getElementById('loginModal').classList.add('open');
+  document.getElementById('loginId').value  = '';
+  document.getElementById('loginPwd').value = '';
+  document.getElementById('loginError').classList.remove('show');
+  setTimeout(() => document.getElementById('loginId').focus(), 100);
+}
+
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.remove('open');
+}
+
+function doLogin() {
+  const id  = document.getElementById('loginId').value.trim();
+  const pwd = document.getElementById('loginPwd').value;
+  if (id === ADMIN_ID && pwd === ADMIN_PWD) {
+    closeLoginModal();
+    enableEditMode();
+  } else {
+    document.getElementById('loginError').classList.add('show');
+    document.getElementById('loginPwd').value = '';
+    document.getElementById('loginPwd').focus();
+  }
+}
+
+function enableEditMode() {
+  isEditMode = true;
+  document.body.classList.add('edit-mode');
+  // Activate edit banner
+  document.getElementById('editBanner').classList.add('show');
+  // Update nav button
+  const btn = document.getElementById('editModeBtn');
+  btn.className = 'btn-edit-mode unlocked';
+  btn.innerHTML = '✏️ <span id="editBtnLabel">Exit Edit</span>';
+  // Make editable fields actually editable
+  document.querySelectorAll('.editable').forEach(el => el.setAttribute('contenteditable','true'));
+  showToast('✅ Edit Mode Unlocked! Click any text to edit.');
+}
+
+function logoutEdit() {
+  isEditMode = false;
+  document.body.classList.remove('edit-mode');
+  document.getElementById('editBanner').classList.remove('show');
+  // Update nav button
+  const btn = document.getElementById('editModeBtn');
+  btn.className = 'btn-edit-mode locked';
+  btn.innerHTML = '🔒 <span id="editBtnLabel">Edit</span>';
+  // Lock editable fields
+  document.querySelectorAll('.editable').forEach(el => el.setAttribute('contenteditable','false'));
+  showToast('🔒 Edit Mode Locked.');
+}
+
+// Gate any edit action behind auth
+function guardedAction(fn) {
+  if (isEditMode) {
+    fn();
+  } else {
+    showToast('🔒 Please login as admin to edit.');
+    openLoginModal();
+  }
+}
+
+// Close login on backdrop click
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('loginModal').addEventListener('click', function(e){
+    if (e.target === this) closeLoginModal();
+  });
+});
 // ══════════════════════════════════════
 // PORTFOLIO DATA (feeds the chatbot)
 // ══════════════════════════════════════
@@ -926,6 +1151,7 @@ function showToast(msg, duration=3000) {
 let pendingProfileData = null;
 
 function openProfileModal() {
+  if (!isEditMode) { showToast('🔒 Login as admin to change profile picture.'); openLoginModal(); return; }
   document.getElementById('profileModal').classList.add('open');
 }
 function closeProfileModal() {
@@ -964,6 +1190,7 @@ function handleProfileDrop(file) {
 }
 
 function saveProfilePicture() {
+  if (!isEditMode) { showToast('🔒 Admin access required.'); return; }
   if (!pendingProfileData) { showToast('⚠️ Please select a photo first'); return; }
   document.getElementById('profileImg').src = pendingProfileData;
   try { localStorage.setItem('akash_profilePic', pendingProfileData); } catch(e){}
@@ -977,6 +1204,7 @@ function saveProfilePicture() {
 let pendingResumeFile = null;
 
 function openResumeModal() {
+  if (!isEditMode) { showToast('🔒 Login as admin to upload resume.'); openLoginModal(); return; }
   document.getElementById('resumeModal').classList.add('open');
 }
 function closeResumeModal() {
@@ -1006,6 +1234,7 @@ function handleResumeDrop(file) {
 }
 
 function saveResume() {
+  if (!isEditMode) { showToast('🔒 Admin access required.'); return; }
   if (!pendingResumeFile) { showToast('⚠️ Please select a resume file first'); return; }
   const url = URL.createObjectURL(pendingResumeFile);
   const a = document.createElement('a');
@@ -1074,6 +1303,7 @@ function closeLB(e) { if (e.target === document.getElementById('lightbox')) clos
 // CERT / AWARD IMAGE UPLOAD
 // ══════════════════════════════════════
 function uploadCertImg(e, idx) {
+  if (!isEditMode) { showToast('🔒 Login as admin to upload certificates.'); e.target.value=''; openLoginModal(); return; }
   const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = function(ev) {
@@ -1089,6 +1319,7 @@ function uploadCertImg(e, idx) {
 function viewCertImg(idx) { if (certImgs[idx]) openLightbox(certImgs[idx]); }
 
 function uploadAwardImg(e, idx) {
+  if (!isEditMode) { showToast('🔒 Login as admin to upload award images.'); e.target.value=''; openLoginModal(); return; }
   const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = function(ev) {
