@@ -26,7 +26,6 @@ nav{
 .nav-brand{display:flex;align-items:center;gap:.7rem;}
 .nav-logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
 .nav-name{font-weight:700;font-size:1rem;}
-/* TAB NAV */
 .nav-tabs{display:flex;align-items:center;gap:.3rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:100px;padding:.3rem;}
 .nav-tab{
   padding:.5rem 1.3rem;border-radius:100px;
@@ -50,20 +49,23 @@ nav{
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
 
-/* HERO PAGE - OPTIMIZED FIT */
+/* ═══ HERO ═══ */
 .hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:space-between;
+  min-height:100vh;display:flex;align-items:center;
   padding:7rem 4rem 2rem;position:relative;overflow:hidden;gap:2rem;
+  flex-wrap:wrap;
 }
 .deco1,.deco2{position:absolute;border-radius:50%;border:1px dashed rgba(255,255,255,0.055);pointer-events:none;}
 .deco1{width:520px;height:520px;right:-100px;top:-80px;}
 .deco2{width:320px;height:320px;left:-100px;bottom:-80px;}
-.hero-left{flex:1;max-width:510px;}
+
+/* Left: Name/title/desc */
+.hero-left{flex:1;min-width:260px;max-width:420px;}
 .hero-eyebrow{color:var(--muted);font-size:1.05rem;font-weight:400;margin-bottom:.15rem;}
-.hero-name{color:var(--orange);font-size:clamp(2rem,4vw,3.6rem);font-weight:800;line-height:1.05;margin-bottom:.15rem;}
-.hero-role{font-size:clamp(1.3rem,2.5vw,2rem);font-weight:700;margin-bottom:1rem;}
-.hero-desc{color:var(--muted);font-size:.87rem;font-weight:300;line-height:1.85;max-width:400px;margin-bottom:1.5rem;}
-.hero-ctas{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.hero-name{color:var(--orange);font-size:clamp(2rem,4vw,3.4rem);font-weight:800;line-height:1.05;margin-bottom:.15rem;}
+.hero-role{font-size:clamp(1.1rem,2vw,1.7rem);font-weight:700;margin-bottom:.9rem;}
+.hero-desc{color:var(--muted);font-size:.87rem;font-weight:300;line-height:1.85;margin-bottom:1.3rem;}
+.hero-ctas{display:flex;align-items:center;gap:1rem;margin-bottom:1.3rem;flex-wrap:wrap;}
 .btn-dis{background:var(--orange);color:#fff;padding:.78rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.87rem;transition:background .2s,transform .2s;display:inline-block;border:none;cursor:pointer;}
 .btn-dis:hover{background:var(--orange2);transform:translateY(-2px);}
 .btn-circ{width:44px;height:44px;border-radius:50%;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;color:var(--orange);text-decoration:none;font-size:1rem;transition:all .2s;background:transparent;cursor:pointer;}
@@ -76,50 +78,110 @@ nav{
 .soc-gh{background:#24292e;color:#fff;}
 .soc-em{background:var(--orange);color:#fff;}
 
-/* profile circle with editable picture */
-.hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative;}
-.pwrap{position:relative;width:350px;height:350px;}
+/* Center: Profile circle */
+.hero-center{display:flex;justify-content:center;align-items:center;position:relative;}
+.pwrap{position:relative;width:310px;height:310px;}
 .ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);animation:spin 22s linear infinite;}
-.pcircle{position:absolute;top:24px;left:24px;width:302px;height:302px;border-radius:50%;background:linear-gradient(145deg,#7a2d12,var(--orange));display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:opacity .3s;}
+.pcircle{position:absolute;top:20px;left:20px;width:270px;height:270px;border-radius:50%;background:linear-gradient(145deg,#7a2d12,var(--orange));display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:opacity .3s;}
 .pcircle:hover{opacity:0.8;}
 .pimg{width:100%;height:100%;object-fit:cover;}
-.pinit{font-size:6rem;font-weight:900;color:rgba(255,255,255,0.14);user-select:none;line-height:1;}
-.profile-upload{position:absolute;bottom:0;right:0;width:50px;height:50px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(240,90,40,.3);}
+.profile-upload{position:absolute;bottom:4px;right:4px;width:44px;height:44px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(240,90,40,.3);z-index:2;}
 .profile-upload:hover{background:var(--orange2);transform:scale(1.1);}
-.profile-upload input{display:none;}
-.profile-upload span{font-size:1.5rem;}
-
-.fcard{position:absolute;background:rgba(10,15,35,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:13px;padding:.7rem 1rem;text-align:center;min-width:115px;}
-.fcard-num{font-size:1.6rem;font-weight:800;line-height:1;}
-.fcard-lbl{font-size:.67rem;color:var(--muted);margin-top:2px;}
+.profile-upload span{font-size:1.2rem;pointer-events:none;}
+.fcard{position:absolute;background:rgba(10,15,35,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:13px;padding:.7rem 1rem;text-align:center;min-width:105px;}
+.fcard-num{font-size:1.5rem;font-weight:800;line-height:1;}
+.fcard-lbl{font-size:.65rem;color:var(--muted);margin-top:2px;}
 .fcard-stars{color:#f5a623;font-size:11px;margin-bottom:3px;}
-.fc1{top:18px;right:-50px;animation:float1 3s ease-in-out infinite;}
-.fc2{top:50%;left:-60px;animation:float2 3.5s ease-in-out .5s infinite;}
-.fc3{bottom:30px;right:-25px;animation:float3 3s ease-in-out 1s infinite;}
+.fc1{top:10px;right:-45px;animation:float1 3s ease-in-out infinite;}
+.fc2{top:50%;left:-55px;animation:float2 3.5s ease-in-out .5s infinite;}
+.fc3{bottom:20px;right:-20px;animation:float3 3s ease-in-out 1s infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 @keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 @keyframes float2{0%,100%{transform:translateY(-50%);}50%{transform:translateY(calc(-50% - 8px));}}
 @keyframes float3{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
 
-/* STATS SHOWCASE - ATTRACTIVE */
-.stats-showcase{padding:3rem 4rem;background:linear-gradient(135deg,rgba(240,90,40,.05),rgba(240,90,40,.02));border-top:1px solid rgba(240,90,40,.2);border-bottom:1px solid rgba(240,90,40,.2);}
-.stats-title{text-align:center;margin-bottom:2.5rem;}
-.stats-title h3{font-size:1.3rem;font-weight:700;margin-bottom:.5rem;}
-.stats-title p{color:var(--muted);font-size:.9rem;}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1200px;margin:0 auto;}
-.stat-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(240,90,40,.25);border-radius:16px;
-  padding:1.8rem;text-align:center;transition:all .3s ease;position:relative;overflow:hidden;
+/* Right: Info Panel */
+.hero-right{flex:1;min-width:240px;max-width:310px;}
+.info-panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:1.5rem;display:flex;flex-direction:column;gap:.85rem;}
+.info-panel h3{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem;}
+.info-row{display:flex;align-items:flex-start;gap:.7rem;padding:.6rem .7rem;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:border-color .2s;}
+.info-row:hover{border-color:rgba(240,90,40,.3);}
+.info-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+.info-label{font-size:.65rem;color:var(--muted);line-height:1;margin-bottom:2px;}
+.info-value{font-size:.8rem;font-weight:600;color:#fff;word-break:break-all;}
+.info-value a{color:var(--orange);text-decoration:none;}
+.info-value a:hover{text-decoration:underline;}
+.avail-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#4ade80;padding:.35rem .8rem;border-radius:100px;font-size:.72rem;font-weight:600;margin-top:.3rem;}
+.avail-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse-green 1.5s infinite;}
+@keyframes pulse-green{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* ═══ 3D STATS ROW ═══ */
+.stats-showcase{
+  padding:3.5rem 4rem;
+  background:linear-gradient(135deg,rgba(240,90,40,.04),rgba(240,90,40,.01));
+  border-top:1px solid rgba(240,90,40,.15);
+  border-bottom:1px solid rgba(240,90,40,.15);
+  overflow:hidden;
+  position:relative;
 }
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),transparent);opacity:0;transition:opacity .3s;}
-.stat-card:hover{
-  background:rgba(240,90,40,.08);border-color:rgba(240,90,40,.5);transform:translateY(-6px);
+.stats-showcase::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(240,90,40,.06), transparent);
+  pointer-events:none;
 }
-.stat-card:hover::before{opacity:1;}
-.stat-icon{font-size:2.5rem;margin-bottom:.8rem;}
-.stat-value{font-size:2rem;font-weight:800;color:var(--orange);line-height:1;margin-bottom:.3rem;}
-.stat-label{font-size:.85rem;color:var(--muted);font-weight:500;}
-.stat-desc{font-size:.75rem;color:rgba(255,255,255,.06);margin-top:.5rem;line-height:1.5;}
+.stats-title{text-align:center;margin-bottom:2.5rem;position:relative;}
+.stats-title h3{font-size:1.3rem;font-weight:700;margin-bottom:.4rem;}
+.stats-title p{color:var(--muted);font-size:.88rem;}
+.stats-row{
+  display:flex;gap:1.5rem;max-width:1200px;margin:0 auto;
+  perspective:1000px;
+  justify-content:center;
+  flex-wrap:nowrap;overflow-x:auto;padding-bottom:.5rem;
+}
+.stat-card-3d{
+  flex:1;min-width:180px;max-width:240px;
+  background:linear-gradient(145deg,rgba(20,28,53,.95),rgba(26,35,64,.9));
+  border:1px solid rgba(240,90,40,.2);border-radius:20px;
+  padding:1.8rem 1.3rem;text-align:center;
+  position:relative;overflow:hidden;cursor:default;
+  transform:perspective(600px) rotateX(8deg) rotateY(0deg);
+  transform-style:preserve-3d;
+  transition:transform .4s ease,box-shadow .4s ease,border-color .4s;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.4),
+    0 8px 16px rgba(0,0,0,.2),
+    inset 0 1px 0 rgba(255,255,255,.07);
+}
+.stat-card-3d::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--orange),transparent);
+  opacity:.6;
+}
+.stat-card-3d::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;top:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 50%,rgba(240,90,40,.04) 100%);
+  border-radius:20px;pointer-events:none;
+}
+.stat-card-3d:hover{
+  transform:perspective(600px) rotateX(0deg) rotateY(0deg) translateY(-10px) scale(1.04);
+  border-color:rgba(240,90,40,.6);
+  box-shadow:
+    0 32px 64px rgba(240,90,40,.2),
+    0 16px 32px rgba(0,0,0,.3),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+.stat-glow{
+  position:absolute;width:80px;height:80px;border-radius:50%;
+  background:var(--orange);filter:blur(40px);opacity:.12;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  transition:opacity .4s;
+}
+.stat-card-3d:hover .stat-glow{opacity:.25;}
+.stat-icon-3d{font-size:2.2rem;margin-bottom:.7rem;display:block;position:relative;z-index:1;filter:drop-shadow(0 4px 8px rgba(240,90,40,.3));}
+.stat-value-3d{font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:.3rem;position:relative;z-index:1;text-shadow:0 0 20px rgba(240,90,40,.4);}
+.stat-label-3d{font-size:.82rem;color:#fff;font-weight:600;margin-bottom:.4rem;position:relative;z-index:1;}
+.stat-desc-3d{font-size:.72rem;color:var(--muted);line-height:1.5;position:relative;z-index:1;}
+.stat-line{width:30px;height:2px;background:linear-gradient(90deg,var(--orange),transparent);border-radius:2px;margin:.6rem auto .5rem;position:relative;z-index:1;}
 
 /* INNER SECTIONS */
 .sec{padding:5.5rem 4rem 4rem;}
@@ -129,14 +191,13 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 .sec-sub{color:var(--muted);font-size:.87rem;line-height:1.75;max-width:480px;margin-bottom:2.5rem;}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:280px 1fr;gap:3.5rem;align-items:center;max-width:1050px;}
-.about-img{aspect-ratio:3/4;background:linear-gradient(145deg,var(--navy3),#261540);border-radius:22px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:5rem;}
-.about-img::after{content:'AK';position:absolute;font-size:6rem;font-weight:900;color:rgba(240,90,40,.12);}
+.about-grid{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:center;max-width:1000px;}
+.about-img{aspect-ratio:3/4;background:linear-gradient(145deg,var(--navy3),#261540);border-radius:22px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;}
 .about-body p{color:var(--muted);font-size:.86rem;line-height:1.8;margin-bottom:.8rem;}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
 .chip{background:rgba(240,90,40,.1);border:1px solid rgba(240,90,40,.28);color:var(--orange);padding:.28rem .85rem;border-radius:100px;font-size:.74rem;font-weight:500;}
 
-/* SKILLS - ATTRACTIVE DISPLAY */
+/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.3rem;}
 .sk{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.3rem;transition:all .3s ease;position:relative;overflow:hidden;}
 .sk::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(240,90,40,.1),transparent);transition:left .5s;}
@@ -161,68 +222,29 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 
 /* CERTIFICATIONS */
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;}
-.cert-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:18px;overflow:hidden;
-  transition:border-color .3s,transform .3s;
-}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s;}
 .cert-card:hover{border-color:rgba(240,90,40,.45);transform:translateY(-4px);}
-.cert-img-wrap{
-  width:100%;height:180px;background:var(--navy3);
-  position:relative;overflow:hidden;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-}
+.cert-img-wrap{width:100%;height:180px;background:var(--navy3);position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .cert-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
-.cert-img-placeholder{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.5rem;color:var(--muted);font-size:.78rem;text-align:center;padding:1rem;
-  width:100%;height:100%;
-}
+.cert-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted);font-size:.78rem;text-align:center;padding:1rem;width:100%;height:100%;}
 .cert-img-placeholder .upload-icon{font-size:2rem;margin-bottom:.2rem;}
-.cert-upload-btn{
-  background:rgba(240,90,40,.15);border:1px dashed rgba(240,90,40,.4);
-  color:var(--orange);padding:.35rem .9rem;border-radius:8px;
-  font-size:.72rem;font-weight:600;cursor:pointer;
-  transition:background .2s;margin-top:.3rem;
-}
+.cert-upload-btn{background:rgba(240,90,40,.15);border:1px dashed rgba(240,90,40,.4);color:var(--orange);padding:.35rem .9rem;border-radius:8px;font-size:.72rem;font-weight:600;cursor:pointer;transition:background .2s;margin-top:.3rem;}
 .cert-upload-btn:hover{background:rgba(240,90,40,.25);}
 .cert-body{padding:1.1rem 1.3rem 1.3rem;}
 .cert-org{font-size:.7rem;color:var(--muted);margin-bottom:.2rem;}
 .cert-name{font-weight:700;font-size:.9rem;margin-bottom:.3rem;}
 .cert-yr{font-size:.72rem;color:var(--orange);}
-.cert-view-btn{
-  display:inline-flex;align-items:center;gap:.3rem;
-  margin-top:.7rem;font-size:.72rem;color:var(--orange);
-  background:rgba(240,90,40,.1);border:1px solid rgba(240,90,40,.25);
-  padding:.28rem .7rem;border-radius:6px;cursor:pointer;
-  transition:background .2s;border:none;font-family:'Poppins',sans-serif;
-}
+.cert-view-btn{display:inline-flex;align-items:center;gap:.3rem;margin-top:.7rem;font-size:.72rem;color:var(--orange);background:rgba(240,90,40,.1);border:1px solid rgba(240,90,40,.25);padding:.28rem .7rem;border-radius:6px;cursor:pointer;transition:background .2s;font-family:'Poppins',sans-serif;}
 .cert-view-btn:hover{background:rgba(240,90,40,.22);}
-.add-cert-card{
-  background:rgba(255,255,255,.03);
-  border:1.5px dashed rgba(255,255,255,.12);
-  border-radius:18px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.6rem;cursor:pointer;min-height:280px;
-  transition:border-color .3s,background .3s;
-  color:var(--muted);font-size:.85rem;
-}
+.add-cert-card{background:rgba(255,255,255,.03);border:1.5px dashed rgba(255,255,255,.12);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;min-height:280px;transition:border-color .3s,background .3s;color:var(--muted);font-size:.85rem;}
 .add-cert-card:hover{border-color:var(--orange);background:rgba(240,90,40,.05);color:var(--orange);}
 .add-cert-card span{font-size:2rem;}
 
 /* AWARDS */
 .awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;}
-.award-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:18px;overflow:hidden;
-  transition:border-color .3s,transform .3s;
-}
+.award-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color .3s,transform .3s;}
 .award-card:hover{border-color:rgba(240,90,40,.45);transform:translateY(-4px);}
-.award-img-wrap{
-  width:100%;height:170px;background:var(--navy3);
-  position:relative;overflow:hidden;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-}
+.award-img-wrap{width:100%;height:170px;background:var(--navy3);position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .award-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
 .award-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted);font-size:.78rem;text-align:center;padding:1rem;width:100%;height:100%;}
 .award-body{padding:1rem 1.2rem 1.2rem;}
@@ -234,17 +256,13 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 .add-award-card span{font-size:2rem;}
 
 /* LIGHTBOX */
-.lightbox{
-  display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(0,0,0,.88);backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;
-}
+.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
 .lightbox.open{display:flex;}
 .lb-inner{position:relative;max-width:90vw;max-height:90vh;}
 .lb-inner img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5);}
 .lb-close{position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;border:none;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 
-/* MODAL (add cert/award) */
+/* MODALS */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--navy2);border:1px solid var(--border);border-radius:20px;padding:2rem;width:100%;max-width:480px;position:relative;}
@@ -253,68 +271,159 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 .modal-close:hover{color:#fff;}
 .form-group{margin-bottom:1rem;}
 .form-group label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.4rem;font-weight:500;}
-.form-group input,.form-group textarea{
-  width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);
-  border-radius:10px;padding:.65rem .9rem;color:#fff;font-family:'Poppins',sans-serif;font-size:.85rem;
-  outline:none;transition:border-color .2s;
-}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:.65rem .9rem;color:#fff;font-family:'Poppins',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--orange);}
 .form-group textarea{resize:none;height:80px;}
-.img-upload-area{
-  width:100%;height:130px;border:1.5px dashed rgba(240,90,40,.4);border-radius:10px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;
-  cursor:pointer;font-size:.8rem;color:var(--muted);transition:background .2s;
-  position:relative;overflow:hidden;
-}
+.img-upload-area{width:100%;height:130px;border:1.5px dashed rgba(240,90,40,.4);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;cursor:pointer;font-size:.8rem;color:var(--muted);transition:background .2s;position:relative;overflow:hidden;}
 .img-upload-area:hover{background:rgba(240,90,40,.06);}
 .img-upload-area img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
 .modal-save{width:100%;padding:.75rem;background:var(--orange);color:#fff;border:none;border-radius:100px;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:.5rem;transition:background .2s;}
 .modal-save:hover{background:var(--orange2);}
 
 /* UPLOAD MODALS */
-.profile-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.8);align-items:center;justify-content:center;}
-.profile-modal.open{display:flex;}
-.profile-modal-content{background:var(--navy2);border-radius:20px;padding:2rem;max-width:500px;width:100%;position:relative;border:1px solid var(--border);}
-.profile-modal-content h3{font-size:1.2rem;margin-bottom:1.5rem;font-weight:700;}
-.profile-modal-content .close-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;}
-.file-input-wrapper{margin:1.5rem 0;}
-.file-input-label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.8rem;font-weight:500;}
-.file-drop-zone{
-  border:2px dashed rgba(240,90,40,.4);border-radius:12px;padding:2rem;
-  text-align:center;cursor:pointer;transition:all .2s;
-  background:rgba(240,90,40,.05);
-}
-.file-drop-zone:hover{background:rgba(240,90,40,.1);border-color:rgba(240,90,40,.6);}
-.file-drop-zone input[type="file"]{display:none;}
+.upload-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.8);align-items:center;justify-content:center;}
+.upload-modal.open{display:flex;}
+.upload-modal-content{background:var(--navy2);border-radius:20px;padding:2rem;max-width:500px;width:90%;position:relative;border:1px solid var(--border);}
+.upload-modal-content h3{font-size:1.2rem;margin-bottom:1.5rem;font-weight:700;}
+.upload-modal-content .close-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;}
+.file-drop-zone{border:2px dashed rgba(240,90,40,.4);border-radius:12px;padding:2rem;text-align:center;cursor:pointer;transition:all .2s;background:rgba(240,90,40,.05);position:relative;}
+.file-drop-zone:hover,.file-drop-zone.drag-over{background:rgba(240,90,40,.1);border-color:rgba(240,90,40,.6);}
+.file-drop-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
 .file-drop-icon{font-size:2.5rem;margin-bottom:.5rem;}
 .file-drop-text{color:var(--muted);font-size:.85rem;}
 .file-preview{margin:1.5rem 0;text-align:center;}
 .file-preview img{max-width:100%;max-height:200px;border-radius:10px;border:1px solid rgba(240,90,40,.3);}
-.profile-modal-actions{display:flex;gap:1rem;margin-top:1.5rem;}
-.profile-modal-actions button{flex:1;padding:.75rem;border-radius:100px;border:none;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}
+.file-preview .fname{color:var(--muted);font-size:.85rem;padding:.8rem;background:rgba(255,255,255,.04);border-radius:8px;display:flex;align-items:center;gap:.5rem;justify-content:center;}
+.modal-actions{display:flex;gap:1rem;margin-top:1.5rem;}
+.modal-actions button{flex:1;padding:.75rem;border-radius:100px;border:none;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}
 .btn-save{background:var(--orange);color:#fff;}
 .btn-save:hover{background:var(--orange2);}
 .btn-cancel{background:rgba(255,255,255,.1);color:var(--muted);}
 .btn-cancel:hover{background:rgba(255,255,255,.15);}
 
+/* TOAST */
+.toast{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);
+  background:rgba(15,22,41,.96);border:1px solid rgba(240,90,40,.4);
+  color:#fff;padding:.8rem 1.5rem;border-radius:100px;
+  font-size:.83rem;font-weight:500;z-index:9999;
+  transition:transform .3s ease;pointer-events:none;
+  backdrop-filter:blur(12px);
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ═══ CHATBOT ═══ */
+.chat-fab{
+  position:fixed;bottom:2rem;right:2rem;z-index:400;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(240,90,40,.4);
+  transition:transform .25s,box-shadow .25s;
+  animation:fabPulse 2.5s ease-in-out infinite;
+}
+.chat-fab:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(240,90,40,.55);animation:none;}
+@keyframes fabPulse{0%,100%{box-shadow:0 8px 24px rgba(240,90,40,.4);}50%{box-shadow:0 8px 32px rgba(240,90,40,.7),0 0 0 8px rgba(240,90,40,.1);}}
+.chat-fab-icon{font-size:1.5rem;line-height:1;}
+.chat-fab-badge{
+  position:absolute;top:-4px;right:-4px;
+  width:18px;height:18px;border-radius:50%;
+  background:#4ade80;border:2px solid var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.55rem;font-weight:700;color:var(--navy);
+}
+
+.chatbot-window{
+  position:fixed;bottom:6rem;right:2rem;z-index:400;
+  width:360px;height:520px;
+  background:var(--navy2);border:1px solid rgba(240,90,40,.25);
+  border-radius:20px;display:none;flex-direction:column;
+  box-shadow:0 24px 60px rgba(0,0,0,.5);
+  overflow:hidden;
+  animation:chatSlide .3s ease;
+}
+.chatbot-window.open{display:flex;}
+@keyframes chatSlide{from{opacity:0;transform:translateY(20px) scale(.95);}to{opacity:1;transform:none;}}
+.chat-header{
+  padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;
+  background:linear-gradient(135deg,rgba(240,90,40,.15),rgba(240,90,40,.05));
+  border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;
+}
+.chat-av{width:36px;height:36px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;}
+.chat-av-info{flex:1;}
+.chat-av-name{font-weight:700;font-size:.88rem;}
+.chat-av-status{font-size:.7rem;color:#4ade80;display:flex;align-items:center;gap:.3rem;}
+.chat-av-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;}
+.chat-close-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:.2rem;}
+.chat-close-btn:hover{color:#fff;}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.8rem;}
+.chat-messages::-webkit-scrollbar{width:3px;}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(240,90,40,.3);border-radius:3px;}
+.chat-msg{display:flex;gap:.6rem;align-items:flex-end;max-width:100%;}
+.chat-msg.user{flex-direction:row-reverse;}
+.chat-bubble{
+  padding:.65rem .9rem;border-radius:14px;font-size:.8rem;line-height:1.55;
+  max-width:78%;word-break:break-word;
+}
+.chat-msg.bot .chat-bubble{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);color:#e2e8f0;border-radius:14px 14px 14px 4px;}
+.chat-msg.user .chat-bubble{background:var(--orange);color:#fff;border-radius:14px 14px 4px 14px;}
+.chat-dot{width:28px;height:28px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;flex-shrink:0;}
+.chat-msg.user .chat-dot{background:rgba(255,255,255,.1);}
+.chat-typing{display:flex;gap:4px;align-items:center;padding:.65rem .9rem;}
+.chat-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:typingDot 1.2s infinite;}
+.chat-typing span:nth-child(2){animation-delay:.2s;}
+.chat-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+.chat-quick{padding:.5rem 1rem;display:flex;gap:.4rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.05);}
+.chat-quick-btn{background:rgba(240,90,40,.1);border:1px solid rgba(240,90,40,.25);color:var(--orange);padding:.3rem .7rem;border-radius:100px;font-size:.68rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;white-space:nowrap;}
+.chat-quick-btn:hover{background:rgba(240,90,40,.2);}
+.chat-input-row{
+  padding:.8rem 1rem;display:flex;gap:.6rem;
+  border-top:1px solid rgba(255,255,255,.07);flex-shrink:0;
+  background:rgba(10,15,35,.5);
+}
+.chat-input{
+  flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:100px;padding:.55rem 1rem;color:#fff;font-family:'Poppins',sans-serif;
+  font-size:.8rem;outline:none;transition:border-color .2s;
+}
+.chat-input:focus{border-color:rgba(240,90,40,.5);}
+.chat-send{
+  width:36px;height:36px;border-radius:50%;background:var(--orange);border:none;
+  color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;transition:background .2s;flex-shrink:0;
+}
+.chat-send:hover{background:var(--orange2);}
+
 /* FOOTER */
 footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.77rem;}
 
-@media(max-width:900px){
-  nav{padding:.9rem 1.2rem;gap:.5rem;flex-wrap:wrap;}
-  .nav-tabs{gap:.1rem;padding:.25rem;order:3;width:100%;}
+@media(max-width:1050px){
+  .hero{flex-direction:column;padding:6rem 1.5rem 2rem;align-items:center;}
+  .hero-left,.hero-right{max-width:500px;width:100%;}
+  .hero-right{order:-1;}
+  .info-panel{flex-direction:row;flex-wrap:wrap;gap:.6rem;}
+  .info-row{min-width:45%;}
+}
+@media(max-width:768px){
+  nav{padding:.9rem 1rem;gap:.4rem;flex-wrap:wrap;}
+  .nav-tabs{gap:.05rem;padding:.2rem;order:3;width:100%;overflow-x:auto;}
+  .nav-tab{padding:.4rem .8rem;font-size:.75rem;}
   .nav-actions{order:2;}
-  .hero{flex-direction:column;padding:6rem 1.5rem 2rem;gap:1.5rem;}
-  .pwrap{width:270px;height:270px;margin:0 auto;}
-  .ring{width:270px;height:270px;}
-  .pcircle{width:238px;height:238px;top:16px;left:16px;}
-  .fc1{right:-10px;}.fc2{left:-10px;}.fc3{right:0px;}
-  .sec{padding:4rem 1.5rem 3rem;}
+  .hero{padding:5.5rem 1rem 1.5rem;}
+  .pwrap{width:240px;height:240px;}
+  .pcircle{width:210px;height:210px;top:15px;left:15px;}
+  .fc1{right:-5px;}.fc2{left:-5px;}.fc3{right:5px;}
+  .sec{padding:3.5rem 1.2rem 2.5rem;}
   .about-grid{grid-template-columns:1fr;}
-  .stats-showcase{padding:2rem 1.5rem;}
-  .stats-grid{gap:1.5rem;}
+  .stats-showcase{padding:2rem 1rem;}
+  .stats-row{gap:1rem;}
+  .stat-card-3d{min-width:150px;}
   footer{flex-direction:column;gap:.4rem;padding:1.2rem;text-align:center;}
+  .chatbot-window{width:calc(100vw - 2rem);right:1rem;bottom:5.5rem;}
+  .chat-fab{right:1rem;}
 }
 </style>
 </head>
@@ -328,43 +437,40 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   </div>
 </div>
 
-<!-- PROFILE PICTURE UPLOAD MODAL -->
-<div class="profile-modal" id="profileModal">
-  <div class="profile-modal-content">
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- PROFILE MODAL -->
+<div class="upload-modal" id="profileModal">
+  <div class="upload-modal-content">
     <button class="close-btn" onclick="closeProfileModal()">✕</button>
-    <h3>Update Profile Picture</h3>
-    <div class="file-input-wrapper">
-      <label class="file-input-label">Select or drag your profile image</label>
-      <div class="file-drop-zone" id="profileDropZone">
-        <div class="file-drop-icon">📷</div>
-        <div class="file-drop-text">Click to upload or drag and drop</div>
-        <input type="file" id="profileFile" accept="image/*" onchange="previewProfileImg()">
-      </div>
+    <h3>📷 Update Profile Picture</h3>
+    <div class="file-drop-zone" id="profileDropZone">
+      <div class="file-drop-icon">🖼️</div>
+      <div class="file-drop-text">Click to upload or drag &amp; drop<br><small style="opacity:.6;">PNG, JPG, WEBP supported</small></div>
+      <input type="file" id="profileFileInput" accept="image/*">
     </div>
-    <div class="file-preview" id="profilePreview"></div>
-    <div class="profile-modal-actions">
-      <button class="btn-save" onclick="saveProfilePicture()">Save Picture</button>
+    <div class="file-preview" id="profilePreview" style="display:none;"></div>
+    <div class="modal-actions">
+      <button class="btn-save" onclick="saveProfilePicture()">✓ Save Picture</button>
       <button class="btn-cancel" onclick="closeProfileModal()">Cancel</button>
     </div>
   </div>
 </div>
 
-<!-- RESUME UPLOAD MODAL -->
-<div class="profile-modal" id="resumeModal">
-  <div class="profile-modal-content">
+<!-- RESUME MODAL -->
+<div class="upload-modal" id="resumeModal">
+  <div class="upload-modal-content">
     <button class="close-btn" onclick="closeResumeModal()">✕</button>
-    <h3>Update Resume</h3>
-    <div class="file-input-wrapper">
-      <label class="file-input-label">Select your resume PDF</label>
-      <div class="file-drop-zone" id="resumeDropZone">
-        <div class="file-drop-icon">📄</div>
-        <div class="file-drop-text">Click to upload or drag and drop</div>
-        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" onchange="previewResume()">
-      </div>
+    <h3>📄 Upload Resume</h3>
+    <div class="file-drop-zone" id="resumeDropZone">
+      <div class="file-drop-icon">📋</div>
+      <div class="file-drop-text">Click to upload or drag &amp; drop<br><small style="opacity:.6;">PDF, DOC, DOCX supported</small></div>
+      <input type="file" id="resumeFileInput" accept=".pdf,.doc,.docx">
     </div>
-    <div class="file-preview" id="resumePreview"></div>
-    <div class="profile-modal-actions">
-      <button class="btn-save" onclick="saveResume()">Save Resume</button>
+    <div class="file-preview" id="resumePreview" style="display:none;"></div>
+    <div class="modal-actions">
+      <button class="btn-save" onclick="saveResume()">✓ Save &amp; Download</button>
       <button class="btn-cancel" onclick="closeResumeModal()">Cancel</button>
     </div>
   </div>
@@ -381,7 +487,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <div class="form-group">
       <label>Certification Image</label>
       <div class="img-upload-area" id="cImgArea">
-        <input type="file" accept="image/*" onchange="previewImg(event,'cImgArea','cImgData')">
+        <input type="file" accept="image/*" id="cImgFile">
         <span style="font-size:1.5rem">📷</span>
         <span>Click to upload image</span>
       </div>
@@ -402,7 +508,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <div class="form-group">
       <label>Award Image / Certificate</label>
       <div class="img-upload-area" id="aImgArea">
-        <input type="file" accept="image/*" onchange="previewImg(event,'aImgArea','aImgData')">
+        <input type="file" accept="image/*" id="aImgFile">
         <span style="font-size:1.5rem">🏆</span>
         <span>Click to upload image</span>
       </div>
@@ -438,6 +544,8 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
 <div class="page active" id="page-home">
 <div class="hero">
   <div class="deco1"></div><div class="deco2"></div>
+
+  <!-- LEFT -->
   <div class="hero-left">
     <p class="hero-eyebrow">Hello,</p>
     <h1 class="hero-name">I'm Akash Kourav</h1>
@@ -458,53 +566,127 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
       </div>
     </div>
   </div>
-  <div class="hero-right">
+
+  <!-- CENTER: Profile -->
+  <div class="hero-center">
     <div class="pwrap">
       <div class="ring"></div>
-      <div class="pcircle" onclick="openProfileModal()" title="Click to change profile picture">
+      <div class="pcircle" onclick="openProfileModal()" title="Click to update photo">
         <img id="profileImg" class="pimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f05a28' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='40' font-weight='bold' fill='white' text-anchor='middle' dy='0.3em'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
       </div>
       <div class="profile-upload" onclick="openProfileModal()" title="Update Profile Picture">
-        <input type="file" id="profileInputFile" accept="image/*" onchange="handleProfileFileSelect()" style="display:none;">
         <span>📷</span>
       </div>
       <div class="fcard fc1"><div class="fcard-num">10+</div><div class="fcard-lbl">Dashboards built</div></div>
-      <div class="fcard fc2"><div class="fcard-num">2+</div><div class="fcard-lbl">Years experience</div></div>
-      <div class="fcard fc3"><div class="fcard-stars">★★★★★</div><div class="fcard-num" style="font-size:1.1rem;">BI Pro</div><div class="fcard-lbl">Specialist</div></div>
+      <div class="fcard fc2"><div class="fcard-num">2+</div><div class="fcard-lbl">Years exp.</div></div>
+      <div class="fcard fc3"><div class="fcard-stars">★★★★★</div><div class="fcard-num" style="font-size:1rem;">BI Pro</div><div class="fcard-lbl">Specialist</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Info Panel -->
+  <div class="hero-right">
+    <div class="info-panel">
+      <h3>Quick Info</h3>
+
+      <div class="info-row">
+        <div class="info-icon">🎓</div>
+        <div>
+          <div class="info-label">Education</div>
+          <div class="info-value">B.Tech — Computer Science<br><span style="color:var(--muted);font-size:.72rem;">University of Mumbai · 2022</span></div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-value"><a href="mailto:akash.kourav@email.com">akash.kourav@email.com</a></div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">📱</div>
+        <div>
+          <div class="info-label">Mobile</div>
+          <div class="info-value"><a href="tel:+919876543210">+91 98765 43210</a></div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">Mumbai, Maharashtra 🇮🇳</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">💼</div>
+        <div>
+          <div class="info-label">Experience</div>
+          <div class="info-value">2+ Years · Associate Analyst – BI</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">🌐</div>
+        <div>
+          <div class="info-label">LinkedIn</div>
+          <div class="info-value"><a href="https://linkedin.com/in/akashkourav" target="_blank">linkedin.com/in/akashkourav</a></div>
+        </div>
+      </div>
+
+      <div class="avail-badge">Available for opportunities</div>
     </div>
   </div>
 </div>
 
-<!-- STATS SHOWCASE SECTION -->
+<!-- ═══ 3D STATS ROW ═══ -->
 <div class="stats-showcase">
   <div class="stats-title">
     <h3>What I Bring To The Table</h3>
     <p>Proven expertise in turning data chaos into actionable insights</p>
   </div>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-icon">📊</div>
-      <div class="stat-value">50+</div>
-      <div class="stat-label">Dashboards Created</div>
-      <div class="stat-desc">Production-ready Power BI & Tableau solutions</div>
+  <div class="stats-row">
+    <div class="stat-card-3d">
+      <div class="stat-glow"></div>
+      <span class="stat-icon-3d">📊</span>
+      <div class="stat-value-3d">50+</div>
+      <div class="stat-line"></div>
+      <div class="stat-label-3d">Dashboards Created</div>
+      <div class="stat-desc-3d">Production-ready Power BI &amp; Tableau solutions</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-icon">⚡</div>
-      <div class="stat-value">40%</div>
-      <div class="stat-label">Time Saved</div>
-      <div class="stat-desc">Through automated reporting & ETL pipelines</div>
+    <div class="stat-card-3d">
+      <div class="stat-glow"></div>
+      <span class="stat-icon-3d">⚡</span>
+      <div class="stat-value-3d">40%</div>
+      <div class="stat-line"></div>
+      <div class="stat-label-3d">Time Saved</div>
+      <div class="stat-desc-3d">Automated reporting &amp; ETL pipelines</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-icon">🎯</div>
-      <div class="stat-value">100%</div>
-      <div class="stat-label">Data Accuracy</div>
-      <div class="stat-desc">SQL-optimized queries & data validation</div>
+    <div class="stat-card-3d">
+      <div class="stat-glow"></div>
+      <span class="stat-icon-3d">🎯</span>
+      <div class="stat-value-3d">100%</div>
+      <div class="stat-line"></div>
+      <div class="stat-label-3d">Data Accuracy</div>
+      <div class="stat-desc-3d">SQL-optimized queries &amp; data validation</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-icon">🚀</div>
-      <div class="stat-value">8+</div>
-      <div class="stat-label">Tools Mastered</div>
-      <div class="stat-desc">Power BI, Tableau, SQL, Python & more</div>
+    <div class="stat-card-3d">
+      <div class="stat-glow"></div>
+      <span class="stat-icon-3d">🚀</span>
+      <div class="stat-value-3d">8+</div>
+      <div class="stat-line"></div>
+      <div class="stat-label-3d">Tools Mastered</div>
+      <div class="stat-desc-3d">Power BI, Tableau, SQL, Python &amp; more</div>
+    </div>
+    <div class="stat-card-3d">
+      <div class="stat-glow"></div>
+      <span class="stat-icon-3d">🏆</span>
+      <div class="stat-value-3d">5+</div>
+      <div class="stat-line"></div>
+      <div class="stat-label-3d">Certifications</div>
+      <div class="stat-desc-3d">Microsoft, Google, Tableau &amp; more</div>
     </div>
   </div>
 </div>
@@ -517,7 +699,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <h2 class="sec-h">Data-driven &amp; insight-focused</h2>
   <div class="abar"></div>
   <div class="about-grid">
-    <div class="about-img"></div>
+    <div class="about-img" style="font-size:5rem;display:flex;align-items:center;justify-content:center;">🧑‍💻</div>
     <div class="about-body">
       <h3>Hi, I'm Akash 👋</h3>
       <p>I'm an Associate Analyst in Business Intelligence based in Mumbai. I specialize in designing interactive dashboards, building data pipelines, and translating complex datasets into narratives that drive business decisions.</p>
@@ -526,7 +708,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
       <div class="chips">
         <span class="chip">📍 Mumbai, India</span>
         <span class="chip">💼 Associate Analyst – BI</span>
-        <span class="chip">🎓 Open to opportunities</span>
+        <span class="chip">🎓 B.Tech CS · 2022</span>
         <span class="chip">⚡ Available for freelance</span>
         <span class="chip">📊 Power BI Expert</span>
         <span class="chip">🐍 Python Enthusiast</span>
@@ -544,30 +726,12 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <div class="abar"></div>
   <p class="sec-sub">A full stack of BI capabilities — from data wrangling to executive-ready dashboards.</p>
   <div class="skills-grid">
-    <div class="sk">
-      <div class="sk-icon">📊</div><div class="sk-title">BI &amp; Visualization</div>
-      <div class="tags"><span class="tag h">Power BI</span><span class="tag h">Tableau</span><span class="tag">Looker</span><span class="tag">Data Studio</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-icon">🗄️</div><div class="sk-title">Databases &amp; Query</div>
-      <div class="tags"><span class="tag h">SQL</span><span class="tag h">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">BigQuery</span><span class="tag">Excel</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-icon">🐍</div><div class="sk-title">Programming</div>
-      <div class="tags"><span class="tag h">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">DAX</span><span class="tag">M Query</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-icon">⚙️</div><div class="sk-title">Analytics</div>
-      <div class="tags"><span class="tag h">ETL</span><span class="tag">Data Modeling</span><span class="tag">KPI Design</span><span class="tag">Root Cause</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-icon">☁️</div><div class="sk-title">Cloud &amp; Platforms</div>
-      <div class="tags"><span class="tag">Azure</span><span class="tag">Google Cloud</span><span class="tag">SharePoint</span><span class="tag">Jira</span></div>
-    </div>
-    <div class="sk">
-      <div class="sk-icon">🤝</div><div class="sk-title">Soft Skills</div>
-      <div class="tags"><span class="tag h">Storytelling</span><span class="tag">Stakeholder Mgmt</span><span class="tag">Agile</span><span class="tag">Documentation</span></div>
-    </div>
+    <div class="sk"><div class="sk-icon">📊</div><div class="sk-title">BI &amp; Visualization</div><div class="tags"><span class="tag h">Power BI</span><span class="tag h">Tableau</span><span class="tag">Looker</span><span class="tag">Data Studio</span></div></div>
+    <div class="sk"><div class="sk-icon">🗄️</div><div class="sk-title">Databases &amp; Query</div><div class="tags"><span class="tag h">SQL</span><span class="tag h">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">BigQuery</span><span class="tag">Excel</span></div></div>
+    <div class="sk"><div class="sk-icon">🐍</div><div class="sk-title">Programming</div><div class="tags"><span class="tag h">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">DAX</span><span class="tag">M Query</span></div></div>
+    <div class="sk"><div class="sk-icon">⚙️</div><div class="sk-title">Analytics</div><div class="tags"><span class="tag h">ETL</span><span class="tag">Data Modeling</span><span class="tag">KPI Design</span><span class="tag">Root Cause</span></div></div>
+    <div class="sk"><div class="sk-icon">☁️</div><div class="sk-title">Cloud &amp; Platforms</div><div class="tags"><span class="tag">Azure</span><span class="tag">Google Cloud</span><span class="tag">SharePoint</span><span class="tag">Jira</span></div></div>
+    <div class="sk"><div class="sk-icon">🤝</div><div class="sk-title">Soft Skills</div><div class="tags"><span class="tag h">Storytelling</span><span class="tag">Stakeholder Mgmt</span><span class="tag">Agile</span><span class="tag">Documentation</span></div></div>
   </div>
 </section>
 </div>
@@ -580,30 +744,10 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <div class="abar"></div>
   <p class="sec-sub">Real-world BI solutions delivering measurable impact.</p>
   <div class="proj-grid">
-    <div class="pj">
-      <div class="pj-type">Power BI · DAX · SQL</div>
-      <div class="pj-title">Executive Sales Dashboard</div>
-      <p class="pj-desc">Multi-page Power BI dashboard consolidating sales data from 3 regions. Leaders can drill from KPIs down to rep-level performance instantly.</p>
-      <div class="tags"><span class="tag h">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span></div>
-    </div>
-    <div class="pj">
-      <div class="pj-type">Python · ETL · Automation</div>
-      <div class="pj-title">Automated Reporting Pipeline</div>
-      <p class="pj-desc">Python ETL pipeline that replaced 8 hours of weekly manual reporting with a fully automated scheduled process feeding clean data to dashboards.</p>
-      <div class="tags"><span class="tag h">Python</span><span class="tag">Pandas</span><span class="tag">Excel</span></div>
-    </div>
-    <div class="pj">
-      <div class="pj-type">Tableau · Data Modeling</div>
-      <div class="pj-title">Customer Churn Analysis</div>
-      <p class="pj-desc">Tableau story with predictive churn indicators built on customer behavior data. Helped surface at-risk accounts and reduce churn rate.</p>
-      <div class="tags"><span class="tag h">Tableau</span><span class="tag">MySQL</span><span class="tag">Python</span></div>
-    </div>
-    <div class="pj">
-      <div class="pj-type">SQL · BigQuery · Looker</div>
-      <div class="pj-title">Operations Performance Tracker</div>
-      <p class="pj-desc">Real-time ops tracker using BigQuery and Looker, monitoring SLA compliance and team productivity metrics end-to-end.</p>
-      <div class="tags"><span class="tag h">BigQuery</span><span class="tag">Looker</span><span class="tag">SQL</span></div>
-    </div>
+    <div class="pj"><div class="pj-type">Power BI · DAX · SQL</div><div class="pj-title">Executive Sales Dashboard</div><p class="pj-desc">Multi-page Power BI dashboard consolidating sales data from 3 regions. Leaders can drill from KPIs down to rep-level performance instantly.</p><div class="tags"><span class="tag h">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span></div></div>
+    <div class="pj"><div class="pj-type">Python · ETL · Automation</div><div class="pj-title">Automated Reporting Pipeline</div><p class="pj-desc">Python ETL pipeline that replaced 8 hours of weekly manual reporting with a fully automated scheduled process feeding clean data to dashboards.</p><div class="tags"><span class="tag h">Python</span><span class="tag">Pandas</span><span class="tag">Excel</span></div></div>
+    <div class="pj"><div class="pj-type">Tableau · Data Modeling</div><div class="pj-title">Customer Churn Analysis</div><p class="pj-desc">Tableau story with predictive churn indicators built on customer behavior data. Helped surface at-risk accounts and reduce churn rate.</p><div class="tags"><span class="tag h">Tableau</span><span class="tag">MySQL</span><span class="tag">Python</span></div></div>
+    <div class="pj"><div class="pj-type">SQL · BigQuery · Looker</div><div class="pj-title">Operations Performance Tracker</div><p class="pj-desc">Real-time ops tracker using BigQuery and Looker, monitoring SLA compliance and team productivity metrics end-to-end.</p><div class="tags"><span class="tag h">BigQuery</span><span class="tag">Looker</span><span class="tag">SQL</span></div></div>
   </div>
 </section>
 </div>
@@ -614,65 +758,21 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <p class="sec-label">Credentials</p>
   <h2 class="sec-h">Certifications</h2>
   <div class="abar"></div>
-  <p class="sec-sub">Click any certification image to view it full size. Upload your own certificate images below.</p>
+  <p class="sec-sub">Click any certification image to view it full size.</p>
   <div class="cert-grid" id="certGrid">
-    <!-- Default certs -->
     <div class="cert-card">
-      <div class="cert-img-wrap" id="cimg-0">
-        <div class="cert-img-placeholder">
-          <div class="upload-icon">🪟</div>
-          <div>Microsoft Power BI</div>
-          <label class="cert-upload-btn">Upload Certificate
-            <input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,0)">
-          </label>
-        </div>
-      </div>
-      <div class="cert-body">
-        <div class="cert-org">Microsoft</div>
-        <div class="cert-name">PL-300: Power BI Data Analyst Associate</div>
-        <div class="cert-yr">✦ Add your year</div>
-        <button class="cert-view-btn" onclick="viewCertImg(0)" style="display:none" id="cvbtn-0">🔍 View Full Size</button>
-      </div>
+      <div class="cert-img-wrap" id="cimg-0"><div class="cert-img-placeholder"><div class="upload-icon">🪟</div><div>Microsoft Power BI</div><label class="cert-upload-btn">Upload Certificate<input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,0)"></label></div></div>
+      <div class="cert-body"><div class="cert-org">Microsoft</div><div class="cert-name">PL-300: Power BI Data Analyst Associate</div><div class="cert-yr">✦ Add your year</div><button class="cert-view-btn" onclick="viewCertImg(0)" style="display:none" id="cvbtn-0">🔍 View Full Size</button></div>
     </div>
     <div class="cert-card">
-      <div class="cert-img-wrap" id="cimg-1">
-        <div class="cert-img-placeholder">
-          <div class="upload-icon">🐍</div>
-          <div>Google Analytics</div>
-          <label class="cert-upload-btn">Upload Certificate
-            <input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,1)">
-          </label>
-        </div>
-      </div>
-      <div class="cert-body">
-        <div class="cert-org">Google / Coursera</div>
-        <div class="cert-name">Google Data Analytics Professional Certificate</div>
-        <div class="cert-yr">✦ Add your year</div>
-        <button class="cert-view-btn" onclick="viewCertImg(1)" style="display:none" id="cvbtn-1">🔍 View Full Size</button>
-      </div>
+      <div class="cert-img-wrap" id="cimg-1"><div class="cert-img-placeholder"><div class="upload-icon">🐍</div><div>Google Analytics</div><label class="cert-upload-btn">Upload Certificate<input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,1)"></label></div></div>
+      <div class="cert-body"><div class="cert-org">Google / Coursera</div><div class="cert-name">Google Data Analytics Professional Certificate</div><div class="cert-yr">✦ Add your year</div><button class="cert-view-btn" onclick="viewCertImg(1)" style="display:none" id="cvbtn-1">🔍 View Full Size</button></div>
     </div>
     <div class="cert-card">
-      <div class="cert-img-wrap" id="cimg-2">
-        <div class="cert-img-placeholder">
-          <div class="upload-icon">📊</div>
-          <div>Tableau Specialist</div>
-          <label class="cert-upload-btn">Upload Certificate
-            <input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,2)">
-          </label>
-        </div>
-      </div>
-      <div class="cert-body">
-        <div class="cert-org">Tableau</div>
-        <div class="cert-name">Tableau Desktop Specialist</div>
-        <div class="cert-yr">✦ Add your year</div>
-        <button class="cert-view-btn" onclick="viewCertImg(2)" style="display:none" id="cvbtn-2">🔍 View Full Size</button>
-      </div>
+      <div class="cert-img-wrap" id="cimg-2"><div class="cert-img-placeholder"><div class="upload-icon">📊</div><div>Tableau Specialist</div><label class="cert-upload-btn">Upload Certificate<input type="file" accept="image/*" style="display:none" onchange="uploadCertImg(event,2)"></label></div></div>
+      <div class="cert-body"><div class="cert-org">Tableau</div><div class="cert-name">Tableau Desktop Specialist</div><div class="cert-yr">✦ Add your year</div><button class="cert-view-btn" onclick="viewCertImg(2)" style="display:none" id="cvbtn-2">🔍 View Full Size</button></div>
     </div>
-    <!-- Add new cert card -->
-    <div class="add-cert-card" onclick="openModal('certModal')">
-      <span>＋</span>
-      <div>Add Certification</div>
-    </div>
+    <div class="add-cert-card" onclick="openModal('certModal')"><span>＋</span><div>Add Certification</div></div>
   </div>
 </section>
 </div>
@@ -683,48 +783,17 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <p class="sec-label">Recognition</p>
   <h2 class="sec-h">Awards &amp; Appreciation</h2>
   <div class="abar"></div>
-  <p class="sec-sub">Achievements and recognition received throughout my career. Upload your award certificates below.</p>
+  <p class="sec-sub">Achievements and recognition received throughout my career.</p>
   <div class="awards-grid" id="awardsGrid">
-    <!-- Default award placeholder -->
     <div class="award-card">
-      <div class="award-img-wrap" id="aimg-0">
-        <div class="award-img-placeholder">
-          <span style="font-size:2rem">🏆</span>
-          <div>Star Performer Award</div>
-          <label class="cert-upload-btn">Upload Image
-            <input type="file" accept="image/*" style="display:none" onchange="uploadAwardImg(event,0)">
-          </label>
-        </div>
-      </div>
-      <div class="award-body">
-        <div class="award-badge">🏆 Recognition</div>
-        <div class="award-title">Star Performer Award</div>
-        <div class="award-desc">Add a description of this award and what you achieved to earn this recognition.</div>
-        <button class="cert-view-btn" onclick="viewAwardImg(0)" style="display:none" id="avbtn-0">🔍 View Certificate</button>
-      </div>
+      <div class="award-img-wrap" id="aimg-0"><div class="award-img-placeholder"><span style="font-size:2rem">🏆</span><div>Star Performer Award</div><label class="cert-upload-btn">Upload Image<input type="file" accept="image/*" style="display:none" onchange="uploadAwardImg(event,0)"></label></div></div>
+      <div class="award-body"><div class="award-badge">🏆 Recognition</div><div class="award-title">Star Performer Award</div><div class="award-desc">Add a description of this award and what you achieved.</div><button class="cert-view-btn" onclick="viewAwardImg(0)" style="display:none" id="avbtn-0">🔍 View Certificate</button></div>
     </div>
     <div class="award-card">
-      <div class="award-img-wrap" id="aimg-1">
-        <div class="award-img-placeholder">
-          <span style="font-size:2rem">🌟</span>
-          <div>Appreciation Letter</div>
-          <label class="cert-upload-btn">Upload Image
-            <input type="file" accept="image/*" style="display:none" onchange="uploadAwardImg(event,1)">
-          </label>
-        </div>
-      </div>
-      <div class="award-body">
-        <div class="award-badge">🌟 Appreciation</div>
-        <div class="award-title">Client Appreciation Letter</div>
-        <div class="award-desc">Add a description of this appreciation and the context in which it was received.</div>
-        <button class="cert-view-btn" onclick="viewAwardImg(1)" style="display:none" id="avbtn-1">🔍 View Letter</button>
-      </div>
+      <div class="award-img-wrap" id="aimg-1"><div class="award-img-placeholder"><span style="font-size:2rem">🌟</span><div>Appreciation Letter</div><label class="cert-upload-btn">Upload Image<input type="file" accept="image/*" style="display:none" onchange="uploadAwardImg(event,1)"></label></div></div>
+      <div class="award-body"><div class="award-badge">🌟 Appreciation</div><div class="award-title">Client Appreciation Letter</div><div class="award-desc">Add a description of this appreciation and context.</div><button class="cert-view-btn" onclick="viewAwardImg(1)" style="display:none" id="avbtn-1">🔍 View Letter</button></div>
     </div>
-    <!-- Add new award -->
-    <div class="add-award-card" onclick="openModal('awardModal')">
-      <span>＋</span>
-      <div>Add Award / Appreciation</div>
-    </div>
+    <div class="add-award-card" onclick="openModal('awardModal')"><span>＋</span><div>Add Award / Appreciation</div></div>
   </div>
 </section>
 </div>
@@ -734,97 +803,265 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <span style="color:rgba(255,255,255,.12)">Built with precision &amp; purpose</span>
 </footer>
 
-<script>
-let profilePictureData = null;
-let resumeFileData = null;
+<!-- ═══ CHATBOT ═══ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Chat with AI about my portfolio">
+  <span class="chat-fab-icon" id="chatFabIcon">💬</span>
+  <div class="chat-fab-badge">AI</div>
+</button>
 
-// ── PAGE SWITCHING ──
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chat-header">
+    <div class="chat-av">AK</div>
+    <div class="chat-av-info">
+      <div class="chat-av-name">Akash's AI Assistant</div>
+      <div class="chat-av-status">Online · Ask me anything</div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">
+      <div class="chat-dot">AK</div>
+      <div class="chat-bubble">Hi! 👋 I'm Akash's AI assistant. I can answer questions about his skills, experience, projects, education and more. What would you like to know?</div>
+    </div>
+  </div>
+  <div class="chat-quick" id="chatQuick">
+    <button class="chat-quick-btn" onclick="quickAsk('What skills does Akash have?')">🛠 Skills</button>
+    <button class="chat-quick-btn" onclick="quickAsk('Tell me about his projects')">💼 Projects</button>
+    <button class="chat-quick-btn" onclick="quickAsk('What are his certifications?')">🎓 Certs</button>
+    <button class="chat-quick-btn" onclick="quickAsk('Is he available for hire?')">📩 Hire</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Ask about Akash's portfolio..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// PORTFOLIO DATA (feeds the chatbot)
+// ══════════════════════════════════════
+const PORTFOLIO_CONTEXT = `
+You are an AI assistant for Akash Kourav's personal portfolio website. Answer questions about Akash based only on the information below. Be concise, friendly, and professional. Use bullet points when listing multiple items. If something isn't covered, say you don't have that detail but suggest contacting Akash directly.
+
+ABOUT AKASH:
+- Name: Akash Kourav
+- Role: Associate Analyst – Business Intelligence (BI)
+- Location: Mumbai, Maharashtra, India
+- Experience: 2+ years in BI and data analytics
+- Education: B.Tech in Computer Science, University of Mumbai (2022)
+- Email: akash.kourav@email.com
+- Mobile: +91 98765 43210
+- LinkedIn: linkedin.com/in/akashkourav
+- GitHub: github.com/akashkourav
+- Available for: Full-time opportunities AND freelance projects
+
+SKILLS:
+- BI & Visualization: Power BI (Expert), Tableau, Looker, Google Data Studio
+- Databases & Query: SQL, MySQL, PostgreSQL, BigQuery, Excel
+- Programming: Python, Pandas, NumPy, DAX, M Query
+- Analytics: ETL, Data Modeling, KPI Design, Root Cause Analysis
+- Cloud & Platforms: Azure, Google Cloud, SharePoint, Jira
+- Soft Skills: Data Storytelling, Stakeholder Management, Agile, Documentation
+
+PROJECTS:
+1. Executive Sales Dashboard (Power BI, DAX, SQL)
+   - Multi-page Power BI dashboard for 3 regional sales teams
+   - Enables drill-through from executive KPIs to rep-level performance
+
+2. Automated Reporting Pipeline (Python, ETL, Automation)
+   - Replaced 8 hours of weekly manual reporting with automated Python ETL
+   - Feeds clean, scheduled data directly into dashboards
+
+3. Customer Churn Analysis (Tableau, MySQL, Python)
+   - Built Tableau story with predictive churn indicators
+   - Surfaced at-risk accounts and helped reduce churn rate
+
+4. Operations Performance Tracker (BigQuery, Looker, SQL)
+   - Real-time tracker for SLA compliance and team productivity
+   - End-to-end solution from raw data to Looker dashboards
+
+CERTIFICATIONS:
+- Microsoft PL-300: Power BI Data Analyst Associate
+- Google Data Analytics Professional Certificate (Coursera)
+- Tableau Desktop Specialist
+
+STATS / ACHIEVEMENTS:
+- 50+ dashboards created
+- 40% time savings through automation
+- 100% data accuracy in deliverables
+- 8+ tools mastered
+- 5+ certifications
+
+HOW TO CONTACT:
+- Email: akash.kourav@email.com
+- Phone: +91 98765 43210
+- LinkedIn: linkedin.com/in/akashkourav
+- Available for freelance and full-time roles
+`;
+
+// ══════════════════════════════════════
+// PAGE SWITCHING
+// ══════════════════════════════════════
 function showPage(id, tabEl) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   if (tabEl) tabEl.classList.add('active');
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── PROFILE PICTURE MODAL ──
+// ══════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════
+function showToast(msg, duration=3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ══════════════════════════════════════
+// PROFILE PICTURE MODAL
+// ══════════════════════════════════════
+let pendingProfileData = null;
+
 function openProfileModal() {
   document.getElementById('profileModal').classList.add('open');
 }
 function closeProfileModal() {
   document.getElementById('profileModal').classList.remove('open');
-  document.getElementById('profileFile').value = '';
-  document.getElementById('profilePreview').innerHTML = '';
+  document.getElementById('profilePreview').style.display = 'none';
+  document.getElementById('profileFileInput').value = '';
+  pendingProfileData = null;
 }
-function previewProfileImg() {
-  const file = document.getElementById('profileFile').files[0];
+
+// File input change
+document.getElementById('profileFileInput').addEventListener('change', function() {
+  const file = this.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = function(e) {
-    const preview = document.getElementById('profilePreview');
-    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-    profilePictureData = e.target.result;
+    pendingProfileData = e.target.result;
+    const prev = document.getElementById('profilePreview');
+    prev.style.display = 'block';
+    prev.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+  };
+  reader.readAsDataURL(file);
+});
+
+// Drag & drop for profile
+setupDragDrop('profileDropZone', 'profileFileInput', handleProfileDrop);
+function handleProfileDrop(file) {
+  if (!file.type.startsWith('image/')) { showToast('⚠️ Please select an image file'); return; }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    pendingProfileData = e.target.result;
+    const prev = document.getElementById('profilePreview');
+    prev.style.display = 'block';
+    prev.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
   };
   reader.readAsDataURL(file);
 }
+
 function saveProfilePicture() {
-  if (!profilePictureData) {
-    alert('Please select an image first');
-    return;
-  }
-  document.getElementById('profileImg').src = profilePictureData;
-  localStorage.setItem('profilePicture', profilePictureData);
+  if (!pendingProfileData) { showToast('⚠️ Please select a photo first'); return; }
+  document.getElementById('profileImg').src = pendingProfileData;
+  try { localStorage.setItem('akash_profilePic', pendingProfileData); } catch(e){}
   closeProfileModal();
-  alert('Profile picture saved successfully!');
+  showToast('✅ Profile picture updated!');
 }
 
-// ── RESUME MODAL ──
+// ══════════════════════════════════════
+// RESUME MODAL
+// ══════════════════════════════════════
+let pendingResumeFile = null;
+
 function openResumeModal() {
   document.getElementById('resumeModal').classList.add('open');
 }
 function closeResumeModal() {
   document.getElementById('resumeModal').classList.remove('open');
-  document.getElementById('resumeFile').value = '';
-  document.getElementById('resumePreview').innerHTML = '';
-}
-function previewResume() {
-  const file = document.getElementById('resumeFile').files[0];
-  if (!file) return;
-  const fileName = file.name;
-  const preview = document.getElementById('resumePreview');
-  preview.innerHTML = `<div style="text-align:center;color:var(--muted);"><div style="font-size:2rem;margin-bottom:.5rem;">📄</div><div>${fileName}</div></div>`;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    resumeFileData = {name: fileName, data: e.target.result};
-  };
-  reader.readAsDataURL(file);
-}
-function saveResume() {
-  if (!resumeFileData) {
-    alert('Please select a resume file first');
-    return;
-  }
-  localStorage.setItem('resumeFile', JSON.stringify(resumeFileData));
-  alert('Resume saved successfully!');
-  closeResumeModal();
+  document.getElementById('resumePreview').style.display = 'none';
+  document.getElementById('resumeFileInput').value = '';
+  pendingResumeFile = null;
 }
 
-// Load saved data on page load
-window.addEventListener('load', function() {
-  const savedProfile = localStorage.getItem('profilePicture');
-  if (savedProfile) {
-    document.getElementById('profileImg').src = savedProfile;
-  }
+document.getElementById('resumeFileInput').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  pendingResumeFile = file;
+  showResumePreview(file.name);
 });
 
-// ── MODALS ──
+function showResumePreview(name) {
+  const prev = document.getElementById('resumePreview');
+  prev.style.display = 'block';
+  prev.innerHTML = `<div class="fname">📄 ${name}</div>`;
+}
+
+setupDragDrop('resumeDropZone', 'resumeFileInput', handleResumeDrop);
+function handleResumeDrop(file) {
+  pendingResumeFile = file;
+  showResumePreview(file.name);
+}
+
+function saveResume() {
+  if (!pendingResumeFile) { showToast('⚠️ Please select a resume file first'); return; }
+  const url = URL.createObjectURL(pendingResumeFile);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = pendingResumeFile.name;
+  a.click();
+  URL.revokeObjectURL(url);
+  closeResumeModal();
+  showToast('✅ Resume download started!');
+}
+
+// ══════════════════════════════════════
+// DRAG & DROP HELPER
+// ══════════════════════════════════════
+function setupDragDrop(zoneId, inputId, onDropCb) {
+  const zone = document.getElementById(zoneId);
+  if (!zone) return;
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      // Sync to input
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      document.getElementById(inputId).files = dt.files;
+      onDropCb(file);
+    }
+  });
+}
+
+// Load saved profile
+window.addEventListener('load', function() {
+  try {
+    const saved = localStorage.getItem('akash_profilePic');
+    if (saved) document.getElementById('profileImg').src = saved;
+  } catch(e){}
+});
+
+// ══════════════════════════════════════
+// GENERIC MODALS
+// ══════════════════════════════════════
 function openModal(id) { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 document.querySelectorAll('.modal-overlay').forEach(m => {
   m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
 });
+document.querySelectorAll('.upload-modal').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+});
 
-// ── LIGHTBOX ──
+// ══════════════════════════════════════
+// LIGHTBOX
+// ══════════════════════════════════════
 let certImgs = {}, awardImgs = {};
 function openLightbox(src) {
   document.getElementById('lb-img').src = src;
@@ -833,7 +1070,9 @@ function openLightbox(src) {
 function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
 function closeLB(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
 
-// ── CERT IMAGE UPLOAD (default cards) ──
+// ══════════════════════════════════════
+// CERT / AWARD IMAGE UPLOAD
+// ══════════════════════════════════════
 function uploadCertImg(e, idx) {
   const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
@@ -841,13 +1080,14 @@ function uploadCertImg(e, idx) {
     certImgs[idx] = ev.target.result;
     const wrap = document.getElementById('cimg-' + idx);
     wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Certificate" onclick="openLightbox(certImgs[' + idx + '])" style="cursor:zoom-in;">';
-    document.getElementById('cvbtn-' + idx).style.display = 'inline-flex';
+    const btn = document.getElementById('cvbtn-' + idx);
+    if (btn) btn.style.display = 'inline-flex';
+    showToast('✅ Certificate image uploaded!');
   };
   reader.readAsDataURL(file);
 }
 function viewCertImg(idx) { if (certImgs[idx]) openLightbox(certImgs[idx]); }
 
-// ── AWARD IMAGE UPLOAD (default cards) ──
 function uploadAwardImg(e, idx) {
   const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
@@ -855,35 +1095,45 @@ function uploadAwardImg(e, idx) {
     awardImgs[idx] = ev.target.result;
     const wrap = document.getElementById('aimg-' + idx);
     wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Award" onclick="openLightbox(awardImgs[' + idx + '])" style="cursor:zoom-in;">';
-    document.getElementById('avbtn-' + idx).style.display = 'inline-flex';
+    const btn = document.getElementById('avbtn-' + idx);
+    if (btn) btn.style.display = 'inline-flex';
+    showToast('✅ Award image uploaded!');
   };
   reader.readAsDataURL(file);
 }
 function viewAwardImg(idx) { if (awardImgs[idx]) openLightbox(awardImgs[idx]); }
 
-// ── MODAL IMAGE PREVIEW ──
-function previewImg(e, areaId, hiddenId) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    document.getElementById(hiddenId).value = ev.target.result;
-    const area = document.getElementById(areaId);
-    let img = area.querySelector('img');
-    if (!img) { img = document.createElement('img'); area.appendChild(img); }
-    img.src = ev.target.result;
-    img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;';
-  };
-  reader.readAsDataURL(file);
+// ══════════════════════════════════════
+// MODAL IMAGE PREVIEW
+// ══════════════════════════════════════
+function setupModalImgUpload(fileInputId, areaId, hiddenId) {
+  document.getElementById(fileInputId).addEventListener('change', function(e) {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      document.getElementById(hiddenId).value = ev.target.result;
+      const area = document.getElementById(areaId);
+      let img = area.querySelector('img.preview-img');
+      if (!img) { img = document.createElement('img'); img.className='preview-img'; area.appendChild(img); }
+      img.src = ev.target.result;
+      img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;';
+    };
+    reader.readAsDataURL(file);
+  });
 }
+setupModalImgUpload('cImgFile', 'cImgArea', 'cImgData');
+setupModalImgUpload('aImgFile', 'aImgArea', 'aImgData');
 
-// ── SAVE NEW CERT ──
+// ══════════════════════════════════════
+// SAVE NEW CERT
+// ══════════════════════════════════════
 let certCount = 3;
 function saveCert() {
   const org = document.getElementById('c-org').value.trim();
   const name = document.getElementById('c-name').value.trim();
   const year = document.getElementById('c-year').value.trim();
   const imgData = document.getElementById('cImgData').value;
-  if (!name) { alert('Please enter certification name'); return; }
+  if (!name) { showToast('⚠️ Please enter certification name'); return; }
   const idx = 'new_' + certCount++;
   certImgs[idx] = imgData;
   const grid = document.getElementById('certGrid');
@@ -891,31 +1141,28 @@ function saveCert() {
   const card = document.createElement('div');
   card.className = 'cert-card';
   const imgSection = imgData
-    ? `<div class="cert-img-wrap" id="cimg-${idx}" style="cursor:zoom-in;" onclick="openLightbox(certImgs['${idx}'])"><img src="${imgData}" alt="Certificate"></div>`
-    : `<div class="cert-img-wrap" id="cimg-${idx}"><div class="cert-img-placeholder"><div class="upload-icon">🎓</div><div>${name}</div></div></div>`;
-  card.innerHTML = imgSection + `
-    <div class="cert-body">
-      <div class="cert-org">${org || 'Issuer'}</div>
-      <div class="cert-name">${name}</div>
-      <div class="cert-yr">${year ? '✦ ' + year : '✦ Year'}</div>
-      ${imgData ? `<button class="cert-view-btn" onclick="openLightbox(certImgs['${idx}'])">🔍 View Full Size</button>` : ''}
-    </div>`;
+    ? `<div class="cert-img-wrap" style="cursor:zoom-in;" onclick="openLightbox(certImgs['${idx}'])"><img src="${imgData}" alt="Certificate"></div>`
+    : `<div class="cert-img-wrap"><div class="cert-img-placeholder"><div class="upload-icon">🎓</div><div>${name}</div></div></div>`;
+  card.innerHTML = imgSection + `<div class="cert-body"><div class="cert-org">${org||'Issuer'}</div><div class="cert-name">${name}</div><div class="cert-yr">${year?'✦ '+year:'✦ Year'}</div>${imgData?`<button class="cert-view-btn" onclick="openLightbox(certImgs['${idx}'])">🔍 View</button>`:''}</div>`;
   grid.insertBefore(card, addBtn);
-  ['c-org','c-name','c-year'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('cImgData').value = '';
-  const area = document.getElementById('cImgArea');
-  const img = area.querySelector('img'); if (img) img.remove();
+  ['c-org','c-name','c-year'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('cImgData').value='';
+  const img = document.getElementById('cImgArea').querySelector('img.preview-img');
+  if (img) img.remove();
   closeModal('certModal');
+  showToast('✅ Certification added!');
 }
 
-// ── SAVE NEW AWARD ──
+// ══════════════════════════════════════
+// SAVE NEW AWARD
+// ══════════════════════════════════════
 let awardCount = 2;
 function saveAward() {
   const title = document.getElementById('a-title').value.trim();
   const by = document.getElementById('a-by').value.trim();
   const desc = document.getElementById('a-desc').value.trim();
   const imgData = document.getElementById('aImgData').value;
-  if (!title) { alert('Please enter award title'); return; }
+  if (!title) { showToast('⚠️ Please enter award title'); return; }
   const idx = 'na_' + awardCount++;
   awardImgs[idx] = imgData;
   const grid = document.getElementById('awardsGrid');
@@ -923,89 +1170,127 @@ function saveAward() {
   const card = document.createElement('div');
   card.className = 'award-card';
   const imgSection = imgData
-    ? `<div class="award-img-wrap" id="aimg-${idx}" style="cursor:zoom-in;" onclick="openLightbox(awardImgs['${idx}'])"><img src="${imgData}" alt="Award"></div>`
-    : `<div class="award-img-wrap" id="aimg-${idx}"><div class="award-img-placeholder"><span style="font-size:2rem">🏆</span><div>${title}</div></div></div>`;
-  card.innerHTML = imgSection + `
-    <div class="award-body">
-      <div class="award-badge">🏆 ${by || 'Recognition'}</div>
-      <div class="award-title">${title}</div>
-      <div class="award-desc">${desc || 'Award description.'}</div>
-      ${imgData ? `<button class="cert-view-btn" onclick="openLightbox(awardImgs['${idx}'])">🔍 View Certificate</button>` : ''}
-    </div>`;
+    ? `<div class="award-img-wrap" style="cursor:zoom-in;" onclick="openLightbox(awardImgs['${idx}'])"><img src="${imgData}" alt="Award"></div>`
+    : `<div class="award-img-wrap"><div class="award-img-placeholder"><span style="font-size:2rem">🏆</span><div>${title}</div></div></div>`;
+  card.innerHTML = imgSection + `<div class="award-body"><div class="award-badge">🏆 ${by||'Recognition'}</div><div class="award-title">${title}</div><div class="award-desc">${desc||'Award description.'}</div>${imgData?`<button class="cert-view-btn" onclick="openLightbox(awardImgs['${idx}'])">🔍 View</button>`:''}</div>`;
   grid.insertBefore(card, addBtn);
-  ['a-title','a-by','a-desc'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('aImgData').value = '';
-  const area = document.getElementById('aImgArea');
-  const img = area.querySelector('img'); if (img) img.remove();
+  ['a-title','a-by','a-desc'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('aImgData').value='';
+  const img = document.getElementById('aImgArea').querySelector('img.preview-img');
+  if (img) img.remove();
   closeModal('awardModal');
+  showToast('✅ Award added!');
 }
 
-// ── DYNAMIC UPLOAD (newly added cards) ──
-function uploadCertImgDyn(e, idx) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    certImgs[idx] = ev.target.result;
-    const wrap = document.getElementById('cimg-' + idx);
-    wrap.style.cursor = 'zoom-in';
-    wrap.onclick = () => openLightbox(certImgs[idx]);
-    wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Certificate">';
-  };
-  reader.readAsDataURL(file);
-}
-function uploadAwardImgDyn(e, idx) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    awardImgs[idx] = ev.target.result;
-    const wrap = document.getElementById('aimg-' + idx);
-    wrap.style.cursor = 'zoom-in';
-    wrap.onclick = () => openLightbox(awardImgs[idx]);
-    wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Award">';
-  };
-  reader.readAsDataURL(file);
+// ══════════════════════════════════════
+// CHATBOT
+// ══════════════════════════════════════
+let chatOpen = false;
+let chatHistory = [];
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const win = document.getElementById('chatbotWindow');
+  const icon = document.getElementById('chatFabIcon');
+  if (chatOpen) {
+    win.classList.add('open');
+    icon.textContent = '✕';
+    document.getElementById('chatInput').focus();
+  } else {
+    win.classList.remove('open');
+    icon.textContent = '💬';
+  }
 }
 
-// Drag and drop for profile modal
-const profileDropZone = document.getElementById('profileDropZone');
-if (profileDropZone) {
-  profileDropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    profileDropZone.style.background = 'rgba(240,90,40,.15)';
-  });
-  profileDropZone.addEventListener('dragleave', () => {
-    profileDropZone.style.background = 'rgba(240,90,40,.05)';
-  });
-  profileDropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    profileDropZone.style.background = 'rgba(240,90,40,.05)';
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image')) {
-      document.getElementById('profileFile').files = e.dataTransfer.files;
-      previewProfileImg();
+function quickAsk(question) {
+  document.getElementById('chatInput').value = question;
+  sendChat();
+  // Hide quick buttons after first use
+  document.getElementById('chatQuick').style.display = 'none';
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+
+  appendMsg('user', msg);
+  chatHistory.push({role:'user', content: msg});
+
+  // Show typing
+  const typingId = 'typing_' + Date.now();
+  appendTyping(typingId);
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: PORTFOLIO_CONTEXT,
+        messages: chatHistory
+      })
+    });
+    const data = await response.json();
+    removeTyping(typingId);
+
+    let reply = '';
+    if (data.content && data.content[0] && data.content[0].text) {
+      reply = data.content[0].text;
+    } else if (data.error) {
+      reply = "I'm having trouble connecting right now. Please reach out to Akash directly at akash.kourav@email.com!";
     }
-  });
+    appendMsg('bot', reply);
+    chatHistory.push({role:'assistant', content: reply});
+  } catch(e) {
+    removeTyping(typingId);
+    appendMsg('bot', "Connection issue — please contact Akash directly at akash.kourav@email.com or +91 98765 43210 😊");
+  }
 }
 
-// Drag and drop for resume modal
-const resumeDropZone = document.getElementById('resumeDropZone');
-if (resumeDropZone) {
-  resumeDropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    resumeDropZone.style.background = 'rgba(240,90,40,.15)';
-  });
-  resumeDropZone.addEventListener('dragleave', () => {
-    resumeDropZone.style.background = 'rgba(240,90,40,.05)';
-  });
-  resumeDropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    resumeDropZone.style.background = 'rgba(240,90,40,.05)';
-    const file = e.dataTransfer.files[0];
-    if (file) {
-      document.getElementById('resumeFile').files = e.dataTransfer.files;
-      previewResume();
-    }
-  });
+function appendMsg(role, text) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  const dot = document.createElement('div');
+  dot.className = 'chat-dot';
+  dot.textContent = role === 'bot' ? 'AK' : '👤';
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  // Convert markdown-lite
+  bubble.innerHTML = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n• /g, '<br>• ')
+    .replace(/\n- /g, '<br>• ')
+    .replace(/\n/g, '<br>');
+  div.appendChild(dot);
+  div.appendChild(bubble);
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function appendTyping(id) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = id;
+  const dot = document.createElement('div');
+  dot.className = 'chat-dot';
+  dot.textContent = 'AK';
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  bubble.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+  div.appendChild(dot);
+  div.appendChild(bubble);
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function removeTyping(id) {
+  const el = document.getElementById(id);
+  if (el) el.remove();
 }
 </script>
 </body>
