@@ -45,14 +45,6 @@ nav{
 }
 .btn-resume:hover{background:var(--orange2);transform:translateY(-1px);}
 
-.btn-edit{
-  background:rgba(240,90,40,0.15);color:var(--orange);padding:.55rem 1.5rem;border-radius:100px;
-  font-weight:600;font-size:.82rem;
-  display:inline-flex;align-items:center;gap:.4rem;transition:background .2s,transform .2s;
-  border:1px solid rgba(240,90,40,0.3);cursor:pointer;
-}
-.btn-edit:hover{background:rgba(240,90,40,0.25);transform:translateY(-1px);}
-
 /* PAGES */
 .page{display:none;animation:fadeIn .4s ease;}
 .page.active{display:block;}
@@ -72,9 +64,9 @@ nav{
 .hero-role{font-size:clamp(1.3rem,2.5vw,2rem);font-weight:700;margin-bottom:1rem;}
 .hero-desc{color:var(--muted);font-size:.87rem;font-weight:300;line-height:1.85;max-width:400px;margin-bottom:1.5rem;}
 .hero-ctas{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-.btn-dis{background:var(--orange);color:#fff;padding:.78rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.87rem;transition:background .2s,transform .2s;display:inline-block;}
+.btn-dis{background:var(--orange);color:#fff;padding:.78rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.87rem;transition:background .2s,transform .2s;display:inline-block;border:none;cursor:pointer;}
 .btn-dis:hover{background:var(--orange2);transform:translateY(-2px);}
-.btn-circ{width:44px;height:44px;border-radius:50%;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;color:var(--orange);text-decoration:none;font-size:1rem;transition:all .2s;}
+.btn-circ{width:44px;height:44px;border-radius:50%;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;color:var(--orange);text-decoration:none;font-size:1rem;transition:all .2s;background:transparent;cursor:pointer;}
 .btn-circ:hover{background:var(--orange);color:#fff;transform:scale(1.1);}
 .follow-row{display:flex;align-items:center;gap:.8rem;font-size:.82rem;color:var(--muted);}
 .socials{display:flex;gap:.45rem;}
@@ -85,51 +77,29 @@ nav{
 .soc-em{background:var(--orange);color:#fff;}
 
 /* profile circle with editable picture */
-<div class="hero-right">
+.hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative;}
+.pwrap{position:relative;width:350px;height:350px;}
+.ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);animation:spin 22s linear infinite;}
+.pcircle{position:absolute;top:24px;left:24px;width:302px;height:302px;border-radius:50%;background:linear-gradient(145deg,#7a2d12,var(--orange));display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:opacity .3s;}
+.pcircle:hover{opacity:0.8;}
+.pimg{width:100%;height:100%;object-fit:cover;}
+.pinit{font-size:6rem;font-weight:900;color:rgba(255,255,255,0.14);user-select:none;line-height:1;}
+.profile-upload{position:absolute;bottom:0;right:0;width:50px;height:50px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(240,90,40,.3);}
+.profile-upload:hover{background:var(--orange2);transform:scale(1.1);}
+.profile-upload input{display:none;}
+.profile-upload span{font-size:1.5rem;}
 
-  <div class="pwrap">
-
-    <div class="ring"></div>
-
-    <!-- PROFILE CIRCLE -->
-    <div class="pcircle" id="profileCircle">
-
-      <!-- Default initials -->
-      <div class="pinit" id="profileInitials">AK</div>
-
-    </div>
-
-    <!-- UPLOAD BUTTON -->
-    <label class="profile-upload">
-
-      <input type="file"
-             accept="image/*"
-             onchange="uploadProfile(event)">
-
-      <span>📷</span>
-
-    </label>
-
-    <!-- FLOATING CARDS -->
-    <div class="fcard fc1">
-      <div class="fcard-num">10+</div>
-      <div class="fcard-lbl">Dashboards built</div>
-    </div>
-
-    <div class="fcard fc2">
-      <div class="fcard-num">2+</div>
-      <div class="fcard-lbl">Years experience</div>
-    </div>
-
-    <div class="fcard fc3">
-      <div class="fcard-stars">★★★★★</div>
-      <div class="fcard-num" style="font-size:1.1rem;">BI Pro</div>
-      <div class="fcard-lbl">Specialist</div>
-    </div>
-
-  </div>
-
-</div>
+.fcard{position:absolute;background:rgba(10,15,35,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:13px;padding:.7rem 1rem;text-align:center;min-width:115px;}
+.fcard-num{font-size:1.6rem;font-weight:800;line-height:1;}
+.fcard-lbl{font-size:.67rem;color:var(--muted);margin-top:2px;}
+.fcard-stars{color:#f5a623;font-size:11px;margin-bottom:3px;}
+.fc1{top:18px;right:-50px;animation:float1 3s ease-in-out infinite;}
+.fc2{top:50%;left:-60px;animation:float2 3.5s ease-in-out .5s infinite;}
+.fc3{bottom:30px;right:-25px;animation:float3 3s ease-in-out 1s infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes float2{0%,100%{transform:translateY(-50%);}50%{transform:translateY(calc(-50% - 8px));}}
+@keyframes float3{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
 
 /* STATS SHOWCASE - ATTRACTIVE */
 .stats-showcase{padding:3rem 4rem;background:linear-gradient(135deg,rgba(240,90,40,.05),rgba(240,90,40,.02));border-top:1px solid rgba(240,90,40,.2);border-bottom:1px solid rgba(240,90,40,.2);}
@@ -256,7 +226,7 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 .award-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
 .award-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted);font-size:.78rem;text-align:center;padding:1rem;width:100%;height:100%;}
 .award-body{padding:1rem 1.2rem 1.2rem;}
-.award-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(240,90,40,.12);border:1px solid rgba(240,90,40,.28);color:var(--orange);padding:.22rem .7rem;border-radius:100px;font-size:.69rem;}
+.award-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(240,90,40,.12);border:1px solid rgba(240,90,40,.28);color:var(--orange);padding:.22rem .7rem;border-radius:100px;font-size:.65rem;}
 .award-title{font-weight:700;font-size:.9rem;margin-bottom:.3rem;}
 .award-desc{color:var(--muted);font-size:.8rem;line-height:1.6;}
 .add-award-card{background:rgba(255,255,255,.03);border:1.5px dashed rgba(255,255,255,.12);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;cursor:pointer;min-height:280px;transition:border-color .3s,background .3s;color:var(--muted);font-size:.85rem;}
@@ -328,34 +298,6 @@ h2.sec-h{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;margin-bottom:.6re
 .btn-cancel{background:rgba(255,255,255,.1);color:var(--muted);}
 .btn-cancel:hover{background:rgba(255,255,255,.15);}
 
-/* EDIT PROFILE MODAL */
-.edit-modal{display:none;position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.85);align-items:center;justify-content:center;overflow-y:auto;}
-.edit-modal.open{display:flex;}
-.edit-modal-content{background:var(--navy2);border-radius:20px;padding:2.5rem;max-width:600px;width:100%;position:relative;border:1px solid var(--border);margin:2rem auto;}
-.edit-modal-content h3{font-size:1.3rem;margin-bottom:2rem;font-weight:700;color:var(--orange);}
-.edit-modal-tabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
-.edit-tab-btn{background:none;border:none;color:var(--muted);padding:.5rem 1rem;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;transition:all .2s;border-bottom:2px solid transparent;position:relative;bottom:-1rem;}
-.edit-tab-btn.active{color:var(--orange);border-bottom-color:var(--orange);}
-.edit-tab-content{display:none;}
-.edit-tab-content.active{display:block;}
-.edit-section{margin-bottom:1.5rem;}
-.edit-section label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;font-weight:500;}
-.edit-section input,.edit-section textarea{
-  width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);
-  border-radius:10px;padding:.7rem 1rem;color:#fff;font-family:'Poppins',sans-serif;font-size:.85rem;
-  outline:none;transition:border-color .2s;
-}
-.edit-section input:focus,.edit-section textarea:focus{border-color:var(--orange);}
-.edit-section textarea{resize:vertical;min-height:80px;}
-.edit-modal-actions{display:flex;gap:1rem;margin-top:2rem;}
-.edit-modal-actions button{flex:1;padding:.8rem;border-radius:100px;border:none;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;font-size:.9rem;}
-.btn-update{background:var(--orange);color:#fff;}
-.btn-update:hover{background:var(--orange2);}
-.btn-discard{background:rgba(255,255,255,.1);color:var(--muted);}
-.btn-discard:hover{background:rgba(255,255,255,.15);}
-.edit-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color .2s;}
-.edit-close:hover{color:#fff;}
-
 /* FOOTER */
 footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.77rem;}
 
@@ -373,7 +315,6 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   .stats-showcase{padding:2rem 1.5rem;}
   .stats-grid{gap:1.5rem;}
   footer{flex-direction:column;gap:.4rem;padding:1.2rem;text-align:center;}
-  .nav-actions{flex-wrap:wrap;}
 }
 </style>
 </head>
@@ -384,78 +325,6 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <div class="lb-inner">
     <button class="lb-close" onclick="closeLightbox()">✕</button>
     <img id="lb-img" src="" alt="">
-  </div>
-</div>
-
-<!-- EDIT PROFILE MODAL -->
-<div class="edit-modal" id="editModal">
-  <div class="edit-modal-content">
-    <button class="edit-close" onclick="closeEditModal()">✕</button>
-    <h3>✏️ Edit Profile</h3>
-    
-    <div class="edit-modal-tabs">
-      <button class="edit-tab-btn active" onclick="switchEditTab('profile-info')">Profile Info</button>
-      <button class="edit-tab-btn" onclick="switchEditTab('photo-resume')">Photo & Resume</button>
-    </div>
-
-    <!-- Profile Info Tab -->
-    <div class="edit-tab-content active" id="profile-info">
-      <div class="edit-section">
-        <label>Full Name</label>
-        <input type="text" id="edit-name" placeholder="Your full name">
-      </div>
-      <div class="edit-section">
-        <label>Title/Role</label>
-        <input type="text" id="edit-role" placeholder="Your role (e.g., BI Analyst)">
-      </div>
-      <div class="edit-section">
-        <label>Bio/Description</label>
-        <textarea id="edit-bio" placeholder="Tell about yourself..."></textarea>
-      </div>
-      <div class="edit-section">
-        <label>Location</label>
-        <input type="text" id="edit-location" placeholder="City, Country">
-      </div>
-      <div class="edit-section">
-        <label>Email</label>
-        <input type="email" id="edit-email" placeholder="your.email@example.com">
-      </div>
-      <div class="edit-section">
-        <label>LinkedIn URL</label>
-        <input type="url" id="edit-linkedin" placeholder="https://linkedin.com/in/...">
-      </div>
-      <div class="edit-section">
-        <label>GitHub URL</label>
-        <input type="url" id="edit-github" placeholder="https://github.com/...">
-      </div>
-    </div>
-
-    <!-- Photo & Resume Tab -->
-    <div class="edit-tab-content" id="photo-resume">
-      <div class="edit-section">
-        <label>Profile Picture</label>
-        <div class="file-drop-zone" id="editProfileDropZone" style="height:150px;margin-top:.5rem;">
-          <div class="file-drop-icon">📷</div>
-          <div class="file-drop-text">Click to upload or drag and drop</div>
-          <input type="file" id="editProfileFile" accept="image/*" onchange="previewEditProfileImg()">
-        </div>
-        <div class="file-preview" id="editProfilePreview" style="margin-top:1rem;"></div>
-      </div>
-      <div class="edit-section">
-        <label>Resume/CV</label>
-        <div class="file-drop-zone" id="editResumeDropZone" style="height:150px;margin-top:.5rem;">
-          <div class="file-drop-icon">📄</div>
-          <div class="file-drop-text">Click to upload or drag and drop</div>
-          <input type="file" id="editResumeFile" accept=".pdf,.doc,.docx" onchange="previewEditResume()">
-        </div>
-        <div class="file-preview" id="editResumePreview" style="margin-top:1rem;"></div>
-      </div>
-    </div>
-
-    <div class="edit-modal-actions">
-      <button class="btn-update" onclick="saveEditProfile()">💾 Save Changes</button>
-      <button class="btn-discard" onclick="closeEditModal()">Cancel</button>
-    </div>
   </div>
 </div>
 
@@ -558,10 +427,6 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <button class="nav-tab" onclick="showPage('awards',this)">Awards</button>
   </div>
   <div class="nav-actions">
-    <button class="btn-edit" onclick="openEditModal()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-      Edit
-    </button>
     <button class="btn-resume" onclick="openResumeModal()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Resume
@@ -580,14 +445,14 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <p class="hero-desc">Transforming raw data into powerful insights that drive smarter decisions. Every dashboard tells a story — I make sure it's the right one.</p>
     <div class="hero-ctas">
       <a href="#" onclick="showPage('projects',document.querySelectorAll('.nav-tab')[3]);return false;" class="btn-dis">Discover More</a>
-      <button onclick="openEditModal()" class="btn-circ" title="Edit Profile">✎</button>
+      <button onclick="openResumeModal()" class="btn-circ" title="Download Resume">↓</button>
     </div>
     <div class="follow-row">
       <span>Follow me:</span>
       <div class="socials">
         <a href="https://linkedin.com/in/akashkourav" target="_blank" class="soc soc-li">in</a>
         <a href="https://github.com/akashkourav" target="_blank" class="soc soc-gh">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 9.5 15.55a3.37 3.37 0 0 0-.94 2.61v3.87M9 19c5 1.5 5-2.5 7-3"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0 1.5 3.78c.1.85.34 2.75-.5 6.23"></path></svg>
         </a>
         <a href="mailto:akash.kourav@email.com" class="soc soc-em">✉</a>
       </div>
@@ -596,12 +461,12 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
   <div class="hero-right">
     <div class="pwrap">
       <div class="ring"></div>
-      <div class="pcircle" onclick="openEditModal()" title="Click to edit profile">
-        <img id="profileImg" class="pimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f05a28' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='40' font-weight='bold' text-anchor='middle' fill='%23fff'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
+      <div class="pcircle" onclick="openProfileModal()" title="Click to change profile picture">
+        <img id="profileImg" class="pimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f05a28' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='40' font-weight='bold' fill='white' text-anchor='middle' dy='0.3em'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
       </div>
-      <div class="profile-upload" onclick="openEditModal()" title="Edit Profile">
+      <div class="profile-upload" onclick="openProfileModal()" title="Update Profile Picture">
         <input type="file" id="profileInputFile" accept="image/*" onchange="handleProfileFileSelect()" style="display:none;">
-        <span>✎</span>
+        <span>📷</span>
       </div>
       <div class="fcard fc1"><div class="fcard-num">10+</div><div class="fcard-lbl">Dashboards built</div></div>
       <div class="fcard fc2"><div class="fcard-num">2+</div><div class="fcard-lbl">Years experience</div></div>
@@ -655,7 +520,7 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
     <div class="about-img"></div>
     <div class="about-body">
       <h3>Hi, I'm Akash 👋</h3>
-      <p>I'm an Associate Analyst in Business Intelligence based in Mumbai. I specialize in designing interactive dashboards, building data pipelines, and translating complex datasets into narratives that drive action.</p>
+      <p>I'm an Associate Analyst in Business Intelligence based in Mumbai. I specialize in designing interactive dashboards, building data pipelines, and translating complex datasets into narratives that drive business decisions.</p>
       <p>My work sits at the intersection of analytics, visualization, and business strategy — helping teams move from gut-feel to evidence-based decision making with Power BI, SQL, Python, and Tableau.</p>
       <p>When I'm not wrangling data, I'm exploring new BI tools, sharpening my SQL skills, or mentoring others on data storytelling.</p>
       <div class="chips">
@@ -872,8 +737,6 @@ footer{padding:1.5rem 4rem;border-top:1px solid rgba(255,255,255,.05);display:fl
 <script>
 let profilePictureData = null;
 let resumeFileData = null;
-let editProfileData = null;
-let editResumeData = null;
 
 // ── PAGE SWITCHING ──
 function showPage(id, tabEl) {
@@ -882,94 +745,6 @@ function showPage(id, tabEl) {
   document.getElementById('page-' + id).classList.add('active');
   if (tabEl) tabEl.classList.add('active');
   window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-// ── EDIT PROFILE MODAL ──
-function openEditModal() {
-  document.getElementById('editModal').classList.add('open');
-  loadEditProfileData();
-}
-function closeEditModal() {
-  document.getElementById('editModal').classList.remove('open');
-  resetEditForm();
-}
-function switchEditTab(tabId) {
-  document.querySelectorAll('.edit-tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.edit-tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-  event.target.classList.add('active');
-}
-function loadEditProfileData() {
-  const saved = JSON.parse(localStorage.getItem('profileData') || '{}');
-  document.getElementById('edit-name').value = saved.name || 'Akash Kourav';
-  document.getElementById('edit-role').value = saved.role || 'A BI Analyst';
-  document.getElementById('edit-bio').value = saved.bio || 'Transforming raw data into powerful insights that drive smarter decisions. Every dashboard tells a story — I make sure it\'s the right one.';
-  document.getElementById('edit-location').value = saved.location || 'Mumbai, India';
-  document.getElementById('edit-email').value = saved.email || 'akash.kourav@email.com';
-  document.getElementById('edit-linkedin').value = saved.linkedin || 'https://linkedin.com/in/akashkourav';
-  document.getElementById('edit-github').value = saved.github || 'https://github.com/akashkourav';
-  
-  if (saved.profilePic) {
-    document.getElementById('editProfilePreview').innerHTML = `<img src="${saved.profilePic}" alt="Preview">`;
-  }
-  if (saved.resumeName) {
-    document.getElementById('editResumePreview').innerHTML = `<div style="text-align:center;color:var(--muted);"><div style="font-size:2rem;margin-bottom:.5rem;">📄</div><div>${saved.resumeName}</div></div>`;
-  }
-}
-function previewEditProfileImg() {
-  const file = document.getElementById('editProfileFile').files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const preview = document.getElementById('editProfilePreview');
-    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-    editProfileData = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
-function previewEditResume() {
-  const file = document.getElementById('editResumeFile').files[0];
-  if (!file) return;
-  const fileName = file.name;
-  const preview = document.getElementById('editResumePreview');
-  preview.innerHTML = `<div style="text-align:center;color:var(--muted);"><div style="font-size:2rem;margin-bottom:.5rem;">📄</div><div>${fileName}</div></div>`;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    editResumeData = {name: fileName, data: e.target.result};
-  };
-  reader.readAsDataURL(file);
-}
-function saveEditProfile() {
-  const profileData = {
-    name: document.getElementById('edit-name').value,
-    role: document.getElementById('edit-role').value,
-    bio: document.getElementById('edit-bio').value,
-    location: document.getElementById('edit-location').value,
-    email: document.getElementById('edit-email').value,
-    linkedin: document.getElementById('edit-linkedin').value,
-    github: document.getElementById('edit-github').value,
-  };
-  
-  if (editProfileData) {
-    profileData.profilePic = editProfileData;
-    document.getElementById('profileImg').src = editProfileData;
-  }
-  if (editResumeData) {
-    profileData.resumeName = editResumeData.name;
-    localStorage.setItem('resumeFile', JSON.stringify(editResumeData));
-  }
-  
-  localStorage.setItem('profileData', JSON.stringify(profileData));
-  alert('✅ Profile updated successfully!');
-  closeEditModal();
-}
-function resetEditForm() {
-  document.getElementById('editProfileFile').value = '';
-  document.getElementById('editResumeFile').value = '';
-  document.getElementById('editProfilePreview').innerHTML = '';
-  document.getElementById('editResumePreview').innerHTML = '';
-  editProfileData = null;
-  editResumeData = null;
 }
 
 // ── PROFILE PICTURE MODAL ──
@@ -998,9 +773,7 @@ function saveProfilePicture() {
     return;
   }
   document.getElementById('profileImg').src = profilePictureData;
-  const saved = JSON.parse(localStorage.getItem('profileData') || '{}');
-  saved.profilePic = profilePictureData;
-  localStorage.setItem('profileData', JSON.stringify(saved));
+  localStorage.setItem('profilePicture', profilePictureData);
   closeProfileModal();
   alert('Profile picture saved successfully!');
 }
@@ -1038,9 +811,9 @@ function saveResume() {
 
 // Load saved data on page load
 window.addEventListener('load', function() {
-  const saved = JSON.parse(localStorage.getItem('profileData') || '{}');
-  if (saved.profilePic) {
-    document.getElementById('profileImg').src = saved.profilePic;
+  const savedProfile = localStorage.getItem('profilePicture');
+  if (savedProfile) {
+    document.getElementById('profileImg').src = savedProfile;
   }
 });
 
@@ -1167,46 +940,30 @@ function saveAward() {
   closeModal('awardModal');
 }
 
-// Drag and drop for edit profile modal
-const editProfileDropZone = document.getElementById('editProfileDropZone');
-if (editProfileDropZone) {
-  editProfileDropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    editProfileDropZone.style.background = 'rgba(240,90,40,.15)';
-  });
-  editProfileDropZone.addEventListener('dragleave', () => {
-    editProfileDropZone.style.background = 'rgba(240,90,40,.05)';
-  });
-  editProfileDropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    editProfileDropZone.style.background = 'rgba(240,90,40,.05)';
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image')) {
-      document.getElementById('editProfileFile').files = e.dataTransfer.files;
-      previewEditProfileImg();
-    }
-  });
+// ── DYNAMIC UPLOAD (newly added cards) ──
+function uploadCertImgDyn(e, idx) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    certImgs[idx] = ev.target.result;
+    const wrap = document.getElementById('cimg-' + idx);
+    wrap.style.cursor = 'zoom-in';
+    wrap.onclick = () => openLightbox(certImgs[idx]);
+    wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Certificate">';
+  };
+  reader.readAsDataURL(file);
 }
-
-// Drag and drop for edit resume modal
-const editResumeDropZone = document.getElementById('editResumeDropZone');
-if (editResumeDropZone) {
-  editResumeDropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    editResumeDropZone.style.background = 'rgba(240,90,40,.15)';
-  });
-  editResumeDropZone.addEventListener('dragleave', () => {
-    editResumeDropZone.style.background = 'rgba(240,90,40,.05)';
-  });
-  editResumeDropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    editResumeDropZone.style.background = 'rgba(240,90,40,.05)';
-    const file = e.dataTransfer.files[0];
-    if (file && (file.type === 'application/pdf' || file.name.endsWith('.doc') || file.name.endsWith('.docx'))) {
-      document.getElementById('editResumeFile').files = e.dataTransfer.files;
-      previewEditResume();
-    }
-  });
+function uploadAwardImgDyn(e, idx) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    awardImgs[idx] = ev.target.result;
+    const wrap = document.getElementById('aimg-' + idx);
+    wrap.style.cursor = 'zoom-in';
+    wrap.onclick = () => openLightbox(awardImgs[idx]);
+    wrap.innerHTML = '<img src="' + ev.target.result + '" alt="Award">';
+  };
+  reader.readAsDataURL(file);
 }
 
 // Drag and drop for profile modal
@@ -1244,13 +1001,12 @@ if (resumeDropZone) {
     e.preventDefault();
     resumeDropZone.style.background = 'rgba(240,90,40,.05)';
     const file = e.dataTransfer.files[0];
-    if (file && (file.type === 'application/pdf' || file.name.endsWith('.doc') || file.name.endsWith('.docx'))) {
+    if (file) {
       document.getElementById('resumeFile').files = e.dataTransfer.files;
       previewResume();
     }
   });
 }
 </script>
-
 </body>
 </html>
