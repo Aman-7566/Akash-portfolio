@@ -85,29 +85,51 @@ nav{
 .soc-em{background:var(--orange);color:#fff;}
 
 /* profile circle with editable picture */
-.hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative;}
-.pwrap{position:relative;width:350px;height:350px;}
-.ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);animation:spin 22s linear infinite;}
-.pcircle{position:absolute;top:24px;left:24px;width:302px;height:302px;border-radius:50%;background:linear-gradient(145deg,#7a2d12,var(--orange));display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:1;transition:opacity .2s;}
-.pcircle:hover{opacity:0.8;}
-.pimg{width:100%;height:100%;object-fit:cover;}
-.pinit{font-size:6rem;font-weight:900;color:rgba(255,255,255,0.14);user-select:none;line-height:1;}
-.profile-upload{position:absolute;bottom:0;right:0;width:50px;height:50px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
-.profile-upload:hover{background:var(--orange2);transform:scale(1.1);}
-.profile-upload input{display:none;}
-.profile-upload span{font-size:1.5rem;}
+<div class="hero-right">
 
-.fcard{position:absolute;background:rgba(10,15,35,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:13px;padding:.7rem 1rem;text-align:center;min-width:115px;}
-.fcard-num{font-size:1.6rem;font-weight:800;line-height:1;}
-.fcard-lbl{font-size:.67rem;color:var(--muted);margin-top:2px;}
-.fcard-stars{color:#f5a623;font-size:11px;margin-bottom:3px;}
-.fc1{top:18px;right:-50px;animation:float1 3s ease-in-out infinite;}
-.fc2{top:50%;left:-60px;animation:float2 3.5s ease-in-out .5s infinite;}
-.fc3{bottom:30px;right:-25px;animation:float3 3s ease-in-out 1s infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes float2{0%,100%{transform:translateY(-50%);}50%{transform:translateY(calc(-50% - 8px));}}
-@keyframes float3{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  <div class="pwrap">
+
+    <div class="ring"></div>
+
+    <!-- PROFILE CIRCLE -->
+    <div class="pcircle" id="profileCircle">
+
+      <!-- Default initials -->
+      <div class="pinit" id="profileInitials">AK</div>
+
+    </div>
+
+    <!-- UPLOAD BUTTON -->
+    <label class="profile-upload">
+
+      <input type="file"
+             accept="image/*"
+             onchange="uploadProfile(event)">
+
+      <span>📷</span>
+
+    </label>
+
+    <!-- FLOATING CARDS -->
+    <div class="fcard fc1">
+      <div class="fcard-num">10+</div>
+      <div class="fcard-lbl">Dashboards built</div>
+    </div>
+
+    <div class="fcard fc2">
+      <div class="fcard-num">2+</div>
+      <div class="fcard-lbl">Years experience</div>
+    </div>
+
+    <div class="fcard fc3">
+      <div class="fcard-stars">★★★★★</div>
+      <div class="fcard-num" style="font-size:1.1rem;">BI Pro</div>
+      <div class="fcard-lbl">Specialist</div>
+    </div>
+
+  </div>
+
+</div>
 
 /* STATS SHOWCASE - ATTRACTIVE */
 .stats-showcase{padding:3rem 4rem;background:linear-gradient(135deg,rgba(240,90,40,.05),rgba(240,90,40,.02));border-top:1px solid rgba(240,90,40,.2);border-bottom:1px solid rgba(240,90,40,.2);}
