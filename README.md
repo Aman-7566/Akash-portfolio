@@ -1,7 +1,5 @@
-<!DOCTYPE html>
 
 <html lang="en">
-<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>Akash Kourav — BI Analyst &amp; Power BI Developer</title>
@@ -1009,25 +1007,6 @@ canvas{display:block;max-width:100%!important;}
   .admin-edit-fab{right:10px!important;bottom:76px!important;padding:.62rem .82rem!important;}
 }
 
-
-/* === FINAL FIX: real colored technology logos - no broken external images === */
-.tech-actual-logo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.62rem;}
-.logo-tech-pill{min-height:64px;align-items:center;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09)!important;}
-.logo-tech-pill:hover{border-color:rgba(232,83,10,.42)!important;background:rgba(232,83,10,.065)!important;}
-.brand-svg-logo{width:38px;height:38px;min-width:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.28);overflow:hidden;}
-.brand-svg-logo svg{width:28px;height:28px;display:block;}
-.brand-svg-logo svg *{vector-effect:non-scaling-stroke;}
-.powerbi-logo{background:#fff7d6}.powerbi-logo svg rect{fill:#f2c811;}.powerbi-logo svg rect:nth-child(2){fill:#e6b800}.powerbi-logo svg rect:nth-child(3){fill:#d9a400}.powerbi-logo svg rect:nth-child(4){fill:#b88a00}
-.powerapps-logo{background:#f5e8ff}.powerapps-logo svg path{fill:#742774;stroke:#a855f7;stroke-width:2;stroke-linejoin:round;}
-.powerautomate-logo{background:#e7f2ff}.powerautomate-logo svg path{fill:#0078d4;stroke:#4fb3ff;stroke-width:2;stroke-linejoin:round;}
-.azure-logo{background:#e8f4ff}.azure-logo svg path{fill:#0078d4;stroke:#4bb3ff;stroke-width:1;}
-.snowflake-logo{background:#e9fbff}.snowflake-logo svg path{fill:none;stroke:#29b5e8;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}
-.sql-logo{background:#fff0e8}.sql-logo svg ellipse,.sql-logo svg path{fill:#f97316;stroke:#b45309;stroke-width:3;}
-.sql-logo svg path{fill:none;}
-.dataiku-logo{background:#e8fffb}.dataiku-logo svg circle{fill:#2ab1ac;}.dataiku-logo svg circle:nth-child(5){fill:#ffb000;}
-.fabric-logo{background:#fff}.fabric-logo .f1{fill:#f25022}.fabric-logo .f2{fill:#7fba00}.fabric-logo .f3{fill:#00a4ef}.fabric-logo .f4{fill:#ffb900}
-.vba-logo{background:#eaf7ed}.vba-logo svg rect{fill:#217346}.vba-logo svg text{fill:#fff;}
-@media(max-width:700px){.tech-actual-logo-grid{grid-template-columns:1fr}.brand-svg-logo{width:34px;height:34px;min-width:34px}.brand-svg-logo svg{width:25px;height:25px}}
 </style>
 <script>
 /* Responsive helper: recalculates chart/canvas sizes on resize and orientation changes */
@@ -1049,100 +1028,6 @@ canvas{display:block;max-width:100%!important;}
   window.addEventListener('orientationchange',function(){setTimeout(fixResponsiveCharts,250);});
 })();
 </script>
-
-
-<style id="ak-experience-full-width-enhanced-fix">
-/* FIX: Full width enhanced experience visual */
-#page-experience .sec{
-  width:100%!important;
-  max-width:100%!important;
-  padding-left:clamp(1rem,3vw,2.8rem)!important;
-  padding-right:clamp(1rem,3vw,2.8rem)!important;
-}
-#page-experience .exp-timeline{
-  width:100%!important;
-  max-width:100%!important;
-  position:relative!important;
-  padding:0!important;
-  display:grid!important;
-  gap:1.1rem!important;
-}
-#page-experience .exp-timeline::before{
-  left:24px!important;
-  top:20px!important;
-  bottom:20px!important;
-  width:3px!important;
-  background:linear-gradient(180deg,rgba(232,83,10,.95),rgba(242,107,42,.55),rgba(232,83,10,.08))!important;
-  box-shadow:0 0 24px rgba(232,83,10,.32)!important;
-}
-#page-experience .exp-item{
-  width:100%!important;
-  display:flex!important;
-  align-items:stretch!important;
-  gap:1.25rem!important;
-  margin-bottom:0!important;
-}
-#page-experience .exp-dot{
-  width:50px!important;
-  min-width:50px!important;
-  height:50px!important;
-  border-radius:16px!important;
-  font-size:1.05rem!important;
-  background:linear-gradient(135deg,var(--orange),var(--orange2))!important;
-  box-shadow:0 0 0 5px rgba(232,83,10,.10),0 14px 32px rgba(232,83,10,.25),inset 0 1px 0 rgba(255,255,255,.22)!important;
-}
-#page-experience .exp-card{
-  width:100%!important;
-  flex:1!important;
-  padding:1.35rem 1.55rem!important;
-  border-radius:18px!important;
-  border:1px solid rgba(255,255,255,.10)!important;
-  background:radial-gradient(circle at 98% 0%,rgba(232,83,10,.10),transparent 32%),linear-gradient(145deg,#0f1320,#141928)!important;
-  box-shadow:0 18px 48px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05)!important;
-  position:relative!important;
-  overflow:hidden!important;
-}
-#page-experience .exp-card::before{
-  content:''!important;
-  position:absolute!important;
-  top:0!important;left:0!important;bottom:0!important;
-  width:4px!important;
-  background:linear-gradient(180deg,var(--orange),var(--orange2))!important;
-  opacity:.95!important;
-}
-#page-experience .exp-card::after{
-  content:''!important;
-  position:absolute!important;
-  inset:0!important;
-  background:linear-gradient(120deg,transparent,rgba(232,83,10,.06),transparent)!important;
-  opacity:0!important;
-  transition:.35s ease!important;
-  pointer-events:none!important;
-}
-#page-experience .exp-card:hover{
-  border-color:rgba(232,83,10,.42)!important;
-  transform:translateY(-4px)!important;
-  box-shadow:0 26px 70px rgba(232,83,10,.12),0 20px 50px rgba(0,0,0,.38)!important;
-}
-#page-experience .exp-card:hover::after{opacity:1!important;}
-#page-experience .exp-header{position:relative!important;z-index:2!important;}
-#page-experience .exp-title{font-size:clamp(.95rem,1.15vw,1.15rem)!important;color:#fff!important;}
-#page-experience .exp-company{position:relative!important;z-index:2!important;font-weight:800!important;}
-#page-experience .exp-bullets{position:relative!important;z-index:2!important;}
-#page-experience .exp-bullets li{font-size:.78rem!important;color:#cdd5e3!important;}
-#page-experience .exp-period{border-radius:999px!important;box-shadow:0 8px 20px rgba(232,83,10,.12)!important;}
-@media(max-width:700px){
-  #page-experience .exp-timeline::before{display:none!important;}
-  #page-experience .exp-item{gap:.75rem!important;}
-  #page-experience .exp-dot{width:40px!important;min-width:40px!important;height:40px!important;border-radius:13px!important;}
-  #page-experience .exp-card{padding:1.05rem!important;}
-}
-
-/* Make home experience journey use available width cleanly */
-#page-home .ak-home-exp-wrap{width:100%!important;max-width:100%!important;}
-#page-home .ak-home-exp-grid{width:100%!important;}
-</style>
-
 </head>
 <body>
 <button class="admin-edit-fab" onclick="openAdminLogin()">✏️ Edit</button>
@@ -1206,7 +1091,7 @@ canvas{display:block;max-width:100%!important;}
 <button class="mobile-nav-tab" onclick="showPage('awards',this,true)">🏆 Awards</button>
 </div>
 <div class="mobile-socials">
-<a class="soc-n soc-li" href="https://www.linkedin.com/in/akash-kourav-064047172" target="_blank" title="LinkedIn">in</a>
+<a class="soc-n soc-li" href="https://www.www.linkedin.com/in/akash-kourav-064047172-064047172" target="_blank" title="LinkedIn">in</a>
 <a class="soc-n soc-gh" href="https://github.com/akashkourav" target="_blank" title="GitHub">
 <svg fill="white" height="12" viewbox="0 0 24 24" width="12"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0 1.5 3.78c.1.85.34 2.75-.5 6.23"></path></svg>
 </a>
@@ -1237,7 +1122,7 @@ canvas{display:block;max-width:100%!important;}
 </div>
 <div class="nav-actions">
 <div class="socials-nav">
-<a class="soc-n soc-li" href="https://www.linkedin.com/in/akash-kourav-064047172" target="_blank" title="LinkedIn">in</a>
+<a class="soc-n soc-li" href="https://www.www.linkedin.com/in/akash-kourav-064047172-064047172" target="_blank" title="LinkedIn">in</a>
 <a class="soc-n soc-gh" href="https://github.com/akashkourav" target="_blank" title="GitHub">
 <svg fill="white" height="12" viewbox="0 0 24 24" width="12"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0 1.5 3.78c.1.85.34 2.75-.5 6.23"></path></svg>
 </a>
@@ -1272,7 +1157,7 @@ canvas{display:block;max-width:100%!important;}
 <div class="mini-stat-v2"><b>5★</b><span>Rating</span></div>
 </div>
 <div class="social-row-v2">
-<a href="https://www.linkedin.com/in/akash-kourav-064047172" target="_blank" title="LinkedIn">in</a>
+<a href="https://www.www.linkedin.com/in/akash-kourav-064047172-064047172" target="_blank" title="LinkedIn">in</a>
 <a href="https://github.com/akashkourav" target="_blank" title="GitHub">GH</a>
 <a href="#contactSection" onclick="scrollToContact();return false;" title="Email">✉</a>
 <a href="tel:+917509762086" title="Phone">☎</a>
@@ -1285,22 +1170,23 @@ canvas{display:block;max-width:100%!important;}
 <a class="contact-item-v2" href="#contactSection" onclick="scrollToContact();return false;"><span class="ci-v2">✉️</span><div><small>Email</small><b>akashkourav7566@gmail.com</b></div></a>
 <div class="contact-item-v2"><span class="ci-v2">📍</span><div><small>Location</small><b>Mumbai, India</b></div></div>
 <div class="contact-item-v2"><span class="ci-v2">🎓</span><div><small>Education</small><b>MBA Fin &amp; IT</b></div></div>
-<a class="contact-item-v2" href="https://www.linkedin.com/in/akash-kourav-064047172" target="_blank"><span class="ci-v2">in</span><div><small>LinkedIn</small><b>www.linkedin.com/in/akash-kourav-064047172</b></div></a>
+<a class="contact-item-v2" href="https://www.www.linkedin.com/in/akash-kourav-064047172-064047172" target="_blank"><span class="ci-v2">in</span><div><small>LinkedIn</small><b>www.www.linkedin.com/in/akash-kourav-064047172-064047172</b></div></a>
 </div>
 <button class="connect-btn-v2" onclick="scrollToContact()">✈ Let's Connect</button>
 </div><div class="glass-card tech-strip-v2">
 <div class="tech-head-v2"><div class="section-pill">Technology I Work With</div><button class="view-link-v2" onclick="showPage('skills',document.querySelectorAll('.nav-tab')[2])">View All Skills →</button></div>
-<div class="tech-list-v2 technology-logo-grid tech-actual-logo-grid">
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo powerbi-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="34" width="10" height="20" rx="3"/><rect x="22" y="24" width="10" height="30" rx="3"/><rect x="36" y="14" width="10" height="40" rx="3"/><rect x="50" y="6" width="8" height="48" rx="3"/></svg></span><div><b>Power BI</b><small>Dashboards · DAX · Reports</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo powerapps-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 5 57 20 32 35 7 20 32 5Z"/><path d="M7 30 32 45 57 30"/><path d="M7 42 32 57 57 42"/></svg></span><div><b>Power Apps</b><small>Canvas · Model-driven Apps</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo powerautomate-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M7 17h28l-8 12h30L31 55l8-17H12z"/></svg></span><div><b>Power Automate</b><small>Flows · Automation</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo azure-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M35 6 16 42h17L21 58h28L39 42h16L35 6z"/></svg></span><div><b>Azure Cloud</b><small>Cloud · Data Services</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo snowflake-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 7v50M12 18l40 28M52 18 12 46M20 9l12 10L44 9M20 55l12-10 12 10M7 32h50"/></svg></span><div><b>Snowflake</b><small>Cloud Data Warehouse</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo sql-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="14" rx="20" ry="8"/><path d="M12 14v28c0 5 9 9 20 9s20-4 20-9V14"/><path d="M12 28c0 5 9 9 20 9s20-4 20-9"/></svg></span><div><b>SQL</b><small>Queries · Data Modeling</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo dataiku-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="18" cy="18" r="7"/><circle cx="46" cy="18" r="7"/><circle cx="18" cy="46" r="7"/><circle cx="46" cy="46" r="7"/><circle cx="32" cy="32" r="8"/></svg></span><div><b>Dataiku</b><small>AI · ML · Data Science</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo fabric-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="10" width="19" height="19" rx="3" class="f1"/><rect x="35" y="10" width="19" height="19" rx="3" class="f2"/><rect x="10" y="35" width="19" height="19" rx="3" class="f3"/><rect x="35" y="35" width="19" height="19" rx="3" class="f4"/></svg></span><div><b>Microsoft Fabric</b><small>Lakehouse · Analytics</small></div></div>
-  <div class="tech-pill-v2 logo-tech-pill"><span class="brand-svg-logo vba-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="12"/><text x="32" y="39" text-anchor="middle" font-size="18" font-weight="900" font-family="Arial, sans-serif">VBA</text></svg></span><div><b>VBA</b><small>Excel Automation</small></div></div>
-</div></div>
+<div class="tech-list-v2 technology-logo-grid">
+
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/color/96/power-bi.png" alt="Power BI logo"><div><b>Power BI</b><small>Dashboards · DAX · Reports</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/color/96/power-apps.png" alt="Power Apps logo"><div><b>Power Apps</b><small>Canvas · Model-driven Apps</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/fluency/96/microsoft-power-automate-2020.png" alt="Power Automate logo"><div><b>Power Automate</b><small>Flows · Automation</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure Cloud logo"><div><b>Azure Cloud</b><small>Cloud · Data Services</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake logo"><div><b>Snowflake</b><small>Cloud Data Warehouse</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/color/96/sql.png" alt="SQL logo"><div><b>SQL</b><small>Queries · Data Modeling</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://cdn.simpleicons.org/dataiku/2AB1AC" alt="Dataiku logo"><div><b>Dataiku</b><small>AI · ML · Data Science</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/color/96/microsoft.png" alt="Microsoft Fabric logo"><div><b>Fabric</b><small>Lakehouse · Analytics</small></div></div>
+<div class="tech-pill-v2 logo-tech-pill"><img class="tech-logo-v2" src="https://img.icons8.com/color/96/visual-basic.png" alt="VBA logo"><div><b>VBA</b><small>Excel Automation</small></div></div>
+</div>
 </div>
 </aside>
 <main class="main-stack">
@@ -1727,7 +1613,7 @@ const KB={
   experience:'Experience:\n• Associate Analyst – BI at XYZ Analytics (2023–Present): 15+ dashboards, 40% effort reduction\n• Data Analyst Intern at ABC Solutions (2022–2023): Tableau, 500K+ row EDA\n• B.Tech CS, University of Mumbai (2018–2022)',
   impact:'Impact:\n• 50+ dashboards built\n• 40% time saved\n• 30% cost savings\n• 60% faster dashboards via SQL optimization\n• 8+ hrs/week saved via automation',
   awards:'Awards:\n• 🏆 Star Performer Award — Q3 2024\n• 🌟 Client Appreciation Letter — zero-revision delivery',
-  hire:'To hire or connect with Akash:\n📧 akashkourav7566@gmail.com\n📱 +91 75097 62086\n🔗 www.linkedin.com/in/akash-kourav-064047172\n\nOpen to: Full-time roles, Freelance, Collaborations, Mentorship\n\nSay "open contact form" to reach out directly!',
+  hire:'To hire or connect with Akash:\n📧 akashkourav7566@gmail.com\n📱 +91 75097 62086\n🔗 www.www.linkedin.com/in/akash-kourav-064047172-064047172\n\nOpen to: Full-time roles, Freelance, Collaborations, Mentorship\n\nSay "open contact form" to reach out directly!',
   contact_form:'Opening the contact form now! Fill in your details and Akash will respond within 24 hours. 📩',
 };
 function getBotReply(msg){
@@ -2038,8 +1924,8 @@ window.addEventListener('load',()=>{
 
 
 /* ── ADMIN EDIT + LOCAL PERMANENT SAVE ── */
-const ADMIN_ID='admin';
-const ADMIN_PASS='1234';
+const ADMIN_ID='Akash7566';
+const ADMIN_PASS='Akash7566';
 const ADMIN_STORE='akash_portfolio_saved_profile_v1';
 
 function getText(selector){const el=document.querySelector(selector);return el?el.textContent.replace('✓','').trim():'';}
@@ -2072,7 +1958,7 @@ function fillAdminForm(){
   document.getElementById('editEmail').value=data.email||'akashkourav7566@gmail.com';
   document.getElementById('editPhone').value=data.phone||'+91 75097 62086';
   document.getElementById('editLocation').value=data.location||'Mumbai, India';
-  document.getElementById('editLinkedin').value=data.linkedin||'www.linkedin.com/in/akash-kourav-064047172';
+  document.getElementById('editLinkedin').value=data.linkedin||'www.www.linkedin.com/in/akash-kourav-064047172-064047172';
   document.getElementById('editDesc').value=data.desc||getText('.hero-desc-v2');
   document.getElementById('editDashboards').value=data.dashboards||'50+';
   document.getElementById('editExperience').value=data.experience||'2+';
@@ -2272,7 +2158,7 @@ window.addEventListener('load',()=>setTimeout(syncHomeSkillsVisual,700));
   };
   window.adminLogin=function(){
     const u=byId('adminUser')?.value.trim(), p=byId('adminPass')?.value.trim();
-    if(u!==ADMIN_ID||p!==ADMIN_PASS){ if(typeof showToast==='function') showToast('❌ Wrong User ID or Password'); return; }
+    if(u!=='Akash7566'||p!=='Akash7566'){ if(typeof showToast==='function') showToast('❌ Wrong User ID or Password'); return; }
     document.body.classList.add('editing');
     byId('adminLoginBox').style.display='none'; byId('adminEditBox').style.display='block'; byId('adminTitle').textContent='Edit Portfolio Information';
     if(typeof fillAdminForm==='function') fillAdminForm();
@@ -3330,7 +3216,7 @@ body.editing .ak-edit-current-tab{display:block}
 (function(){
   const STORE='akash_portfolio_saved_profile_v1';
   const DEFAULTS={
-    linkedin:'www.linkedin.com/in/akash-kourav-064047172',
+    linkedin:'www.www.linkedin.com/in/akash-kourav-064047172-064047172',
     github:'github.com/akashkourav',
     email:'akashkourav7566@gmail.com',
     whatsapp:'917509762086',
@@ -3817,7 +3703,7 @@ body.editing .ak-edit-current-tab{display:block}
     email:'akashkourav7566@gmail.com',
     phone:'+91 75097 62086',
     whatsapp:'917509762086',
-    linkedin:'www.linkedin.com/in/akash-kourav-064047172',
+    linkedin:'www.www.linkedin.com/in/akash-kourav-064047172-064047172',
     github:'github.com/akashkourav',
     naukri:'https://www.naukri.com/mnjuser/profile'
   };
@@ -4208,238 +4094,6 @@ nav{
   window.addEventListener('load',()=>setTimeout(build,750));
 })();
 </script>
-
-
-<script>
-/* === FINAL FIX: LinkedIn and email icon behavior === */
-(function(){
-  function finalPortfolioFix(){
-    const linkedInUrl='https://www.linkedin.com/in/akash-kourav-064047172';
-    document.querySelectorAll('a.soc-li,a[href*="linkedin.com/in"]').forEach(a=>{
-      a.href=linkedInUrl; a.target='_blank';
-      const b=a.querySelector('b'); if(b) b.textContent='www.linkedin.com/in/akash-kourav-064047172';
-    });
-    document.querySelectorAll('a.soc-em').forEach(a=>{
-      a.href='#contactSection';
-      a.removeAttribute('target');
-      a.onclick=function(e){e.preventDefault(); if(typeof scrollToContact==='function'){scrollToContact();}else{document.getElementById('contactSection')?.scrollIntoView({behavior:'smooth',block:'start'});} return false;};
-      a.title='Go to Get In Touch form';
-    });
-  }
-  document.addEventListener('DOMContentLoaded',()=>{finalPortfolioFix();setTimeout(finalPortfolioFix,500);setTimeout(finalPortfolioFix,1500);});
-  window.addEventListener('load',()=>{finalPortfolioFix();setTimeout(finalPortfolioFix,1000);});
-})();
-</script>
-
-<script id="ak-email-icon-scroll-fix">
-(function(){
-  function goContact(e){
-    if(e){e.preventDefault(); e.stopPropagation();}
-    try{
-      if(typeof showPage==='function'){
-        const btn=[...document.querySelectorAll('.nav-tab,.mobile-nav-tab')].find(b=>(b.textContent||'').toLowerCase().includes('contact'));
-        showPage('contact',btn||null);
-      }
-      setTimeout(()=>{
-        const contact=document.querySelector('#page-contact,.contact-section,#contactForm');
-        if(contact) contact.scrollIntoView({behavior:'smooth',block:'start'});
-      },80);
-    }catch(err){location.hash='page-contact';}
-  }
-  document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('.soc-em,[href^="mailto:"]').forEach(function(el){
-      if(el.classList.contains('soc-em') || (el.textContent||'').toLowerCase().includes('email')){
-        el.setAttribute('href','#get-in-touch');
-        el.addEventListener('click',goContact,true);
-      }
-    });
-  });
-})();
-</script>
-
-
-<!-- AKASH PATCH: Full-page Experience Journey + Data Analysis/Dashboard Development Section -->
-<style id="ak-full-page-experience-data-section">
-/* FULL PAGE: Data Analysis / Dashboard Development / What I Do cards */
-#page-home .what-grid-v2,
-#page-home .what-i-do-grid,
-#page-home .what-grid,
-#page-home .services-grid{
-  width:calc(100vw - 32px)!important;
-  max-width:1780px!important;
-  margin-left:50%!important;
-  transform:translateX(-50%)!important;
-  display:grid!important;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important;
-  gap:clamp(.8rem,1vw,1.15rem)!important;
-  padding:clamp(1rem,1.2vw,1.45rem)!important;
-  border-radius:24px!important;
-  border:1px solid rgba(255,255,255,.10)!important;
-  background:
-    radial-gradient(circle at 0% 0%,rgba(232,83,10,.14),transparent 30%),
-    radial-gradient(circle at 100% 0%,rgba(61,127,255,.12),transparent 34%),
-    linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.018))!important;
-  box-shadow:0 20px 55px rgba(0,0,0,.30)!important;
-}
-#page-home .what-card-v2,
-#page-home .what-card,
-#page-home .service-card{
-  min-height:120px!important;
-  width:100%!important;
-  border:1px solid rgba(255,255,255,.09)!important;
-  border-radius:18px!important;
-  background:rgba(7,9,15,.38)!important;
-  padding:1.05rem!important;
-  transition:.25s ease!important;
-}
-#page-home .what-card-v2:hover,
-#page-home .what-card:hover,
-#page-home .service-card:hover{
-  transform:translateY(-5px)!important;
-  border-color:rgba(232,83,10,.38)!important;
-  background:rgba(232,83,10,.06)!important;
-  box-shadow:0 16px 38px rgba(232,83,10,.12)!important;
-}
-#page-home .what-card-v2 b,
-#page-home .what-card b,
-#page-home .service-card b{
-  font-size:.9rem!important;
-  color:#fff!important;
-}
-#page-home .what-card-v2 span,
-#page-home .what-card span,
-#page-home .service-card span{
-  font-size:.74rem!important;
-  line-height:1.6!important;
-  color:#bac4d5!important;
-}
-#page-home .what-icon-v2,
-#page-home .what-icon,
-#page-home .service-icon{
-  font-size:1.55rem!important;
-  filter:drop-shadow(0 8px 18px rgba(232,83,10,.18))!important;
-}
-
-/* FULL PAGE: Home Experience Journey section */
-#page-home .ak-home-exp-wrap,
-#page-home #akHomeExperienceJourney,
-#page-home .experience-journey,
-#page-home .home-experience-journey{
-  width:calc(100vw - 32px)!important;
-  max-width:1780px!important;
-  margin:1.25rem 0 0 50%!important;
-  transform:translateX(-50%)!important;
-  padding:clamp(1.1rem,1.35vw,1.6rem)!important;
-  border-radius:24px!important;
-}
-#page-home .ak-home-exp-grid,
-#page-home .experience-journey-grid{
-  display:grid!important;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important;
-  gap:clamp(.9rem,1.15vw,1.25rem)!important;
-  width:100%!important;
-}
-#page-home .ak-home-exp-card,
-#page-home .experience-card{
-  width:100%!important;
-  min-height:300px!important;
-  padding:1.28rem!important;
-}
-#page-home .ak-home-exp-head{
-  padding:0 0 1rem!important;
-}
-#page-home .ak-home-exp-title{
-  font-size:clamp(1.05rem,1.45vw,1.55rem)!important;
-  letter-spacing:.12em!important;
-}
-#page-home .ak-home-exp-linebox{
-  width:100%!important;
-  padding-left:.25rem!important;
-  padding-right:.25rem!important;
-}
-
-/* FULL PAGE: Experience tab timeline */
-#page-experience.sec,
-#page-experience .sec{
-  width:100%!important;
-  max-width:100%!important;
-  padding-left:clamp(14px,2vw,36px)!important;
-  padding-right:clamp(14px,2vw,36px)!important;
-}
-#page-experience .exp-timeline{
-  width:100%!important;
-  max-width:100%!important;
-  margin:0!important;
-  padding:0!important;
-}
-#page-experience .exp-timeline::before{
-  left:23px!important;
-}
-#page-experience .exp-item{
-  width:100%!important;
-  align-items:stretch!important;
-  gap:1.25rem!important;
-}
-#page-experience .exp-dot{
-  width:48px!important;
-  min-width:48px!important;
-  height:48px!important;
-  border-radius:14px!important;
-  box-shadow:0 0 0 4px rgba(232,83,10,.10),0 14px 26px rgba(232,83,10,.24)!important;
-}
-#page-experience .exp-card{
-  width:100%!important;
-  flex:1!important;
-  min-height:170px!important;
-  padding:1.4rem 1.6rem!important;
-  border-radius:18px!important;
-  background:
-    radial-gradient(circle at 0% 0%,rgba(232,83,10,.10),transparent 25%),
-    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02))!important;
-  border:1px solid rgba(255,255,255,.09)!important;
-  box-shadow:0 16px 42px rgba(0,0,0,.26)!important;
-}
-#page-experience .exp-card:hover{
-  transform:translateX(5px) translateY(-2px)!important;
-  border-color:rgba(232,83,10,.36)!important;
-  box-shadow:0 20px 50px rgba(232,83,10,.10)!important;
-}
-#page-experience .exp-title{font-size:clamp(.98rem,1.2vw,1.18rem)!important;color:#fff!important;}
-#page-experience .exp-company{font-weight:800!important;color:var(--orange)!important;}
-#page-experience .exp-bullets li{font-size:.8rem!important;line-height:1.75!important;color:#ccd6e5!important;}
-
-@media(max-width:900px){
-  #page-home .what-grid-v2,
-  #page-home .what-i-do-grid,
-  #page-home .what-grid,
-  #page-home .services-grid,
-  #page-home .ak-home-exp-wrap,
-  #page-home #akHomeExperienceJourney,
-  #page-home .experience-journey,
-  #page-home .home-experience-journey{
-    width:calc(100vw - 20px)!important;
-  }
-  #page-home .ak-home-exp-card,
-  #page-home .experience-card{min-height:auto!important;}
-  #page-experience .exp-item{gap:.8rem!important;}
-  #page-experience .exp-dot{width:42px!important;min-width:42px!important;height:42px!important;}
-  #page-experience .exp-card{padding:1.05rem!important;}
-}
-@media(max-width:560px){
-  #page-home .what-grid-v2,
-  #page-home .what-i-do-grid,
-  #page-home .what-grid,
-  #page-home .services-grid,
-  #page-home .ak-home-exp-wrap,
-  #page-home #akHomeExperienceJourney,
-  #page-home .experience-journey,
-  #page-home .home-experience-journey{
-    width:calc(100vw - 16px)!important;
-    padding:.9rem!important;
-  }
-  #page-home .ak-home-exp-title{font-size:.95rem!important;}
-}
-</style>
 
 </body>
 </html>
